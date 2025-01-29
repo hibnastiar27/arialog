@@ -4,7 +4,7 @@ import { Accordion, AccordionItem } from '@heroui/react'
 
 const CardComponent = () => {
   return (
-    <div className='flex gap-4 w-full '>
+    <div className='flex flex-col md:flex-row gap-4 w-full '>
       <div className="flex flex-col gap-4 w-full h-fit border rounded-xl border-gray-500  p-4">
         <Image
           isZoomed

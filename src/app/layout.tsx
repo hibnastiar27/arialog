@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import "@/app/global.css"
 import NavbarComponent from "@/components/NavbarComponent";
+import { Providers } from "@/context/ThemeProvider";
 
 export const metadata: Metadata = {
   title: 'Belajar Next JS'
@@ -8,10 +9,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang='en' >
+    <html lang='en' suppressHydrationWarning>
       <body>
-        <NavbarComponent />
-        {children}
+        <Providers>
+          <NavbarComponent />
+          {children}
+        </Providers>
       </body>
     </html>
   )

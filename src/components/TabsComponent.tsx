@@ -19,8 +19,8 @@ const TabsComponent = () => {
           </div>
         </Tab>
 
-        <Tab title="Resume" className=''>
-          <div className='w-[600px] dark:text-foreground'>
+        <Tab title="Resume" className='w-full'>
+          <div className='w-full dark:text-foreground'>
             <iframe
               className='rounded-xl border border-gray-400 dark:border-gray-700'
               src="https://drive.google.com/file/d/1t08yk-cGzX79Zj-64Dj506NAOCt9Bn6B/preview"
