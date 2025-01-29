@@ -61,8 +61,8 @@ const config ={
         },
         dark: {
             colors: {
-                background: "111111",
-                foreground: "#EEEEF0",
+                background: "#111111",
+                foreground: "#FFFFFF",
                 primary: {
                     50: "#0C111C",   // bg
                     100: "#111725", 
@@ -93,7 +93,7 @@ const config ={
                     1000:"#B2B3BD",  // text
                     1100: "#EEEEF0",
                     DEFAULT: "#6C6E79",
-                    foreground: "#EEEEF0", 
+                    foreground: "#FFFFFF", 
                 },
             },
         },

@@ -1,8 +1,6 @@
 
 "use client";
 
-import React from "react";
-import { createContext, useContext, useEffect, useState } from "react";
 import {
     Navbar,
     NavbarBrand,
@@ -11,19 +9,10 @@ import {
     NavbarMenuToggle,
     NavbarMenu,
 } from "@heroui/react";
-import { Switch } from "@heroui/switch";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-interface ThemeContextType {
-    theme: string;
-    toggleTheme: () => void;
-}
-
-const ThemeContext = createContext<ThemeContextType>({
-    theme: "light",
-    toggleTheme: () => { },
-});
+import { useEffect, useState } from "react";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const LogoArialog = () => {
     return (
@@ -35,7 +24,7 @@ const LogoArialog = () => {
 }
 
 const NavbarComponent = () => {
-    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const menuItems = [
         {
@@ -72,13 +61,7 @@ const NavbarComponent = () => {
                     )
                 })}
 
-                {/* DarkMode */}
-                <Switch
-                    color="primary"
-                    size="md"
-                />
-
-                {/* <NavbarMenuToggle onClick={() => setIsMenuOpen(!isMenuOpen)} /> */}
+                <ThemeSwitcher />
             </NavbarContent>
         </Navbar >
     )
