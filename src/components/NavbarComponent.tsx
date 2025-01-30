@@ -15,6 +15,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeSwitcher from "./ThemeSwitcher";
 
+import { BeakerIcon, XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid'
+
 const LogoArialog = () => {
   return (
     <svg width="30" height="32" viewBox="0 0 30 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,6 +28,11 @@ const LogoArialog = () => {
 
 const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuChange = (isOpen: boolean) => {
+    setIsMenuOpen(isOpen);
+    console.log(isOpen ? "Menu is open" : "Menu is closed");
+  };
 
   const menuItems = [
     {
@@ -44,7 +51,7 @@ const NavbarComponent = () => {
 
   const pathname = usePathname();
   return (
-    <Navbar maxWidth="xl" isBordered className="bg-white dark:bg-[#111111]" isBlurred={false} onMenuOpenChange={setIsMenuOpen} >
+    <Navbar maxWidth="xl" isBordered className="bg-white dark:bg-[#111111]" isBlurred={false} onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen}>
       <NavbarBrand>
         <Link href="/" className="flex items-center gap-2">
           <LogoArialog />
@@ -62,11 +69,24 @@ const NavbarComponent = () => {
           )
         })}
         <ThemeSwitcher />
-        <NavbarMenuToggle
+        {/* <NavbarMenuToggle
+          icon={isMenuOpen ? <XMarkIcon className="" /> : <Bars3Icon className="" />}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
+          onChange={handleMenuChange}
+          className="sm:hidden "
+        /> */}
+
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden relative p-2"
+        >
+          <div className={`transition-transform duration-300 transform ${isMenuOpen ? "rotate-90" : ""}`}>
+            {isMenuOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
+          </div>
+        </button>
       </NavbarContent>
+
       <NavbarMenu className="bg-white dark:bg-[#111]">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
