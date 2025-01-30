@@ -29,11 +29,6 @@ const LogoArialog = () => {
 const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleMenuChange = (isOpen: boolean) => {
-    setIsMenuOpen(isOpen);
-    console.log(isOpen ? "Menu is open" : "Menu is closed");
-  };
-
   const menuItems = [
     {
       label: "About Me",
