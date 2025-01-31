@@ -7,12 +7,11 @@ import {
   NavbarContent,
   NavbarItem,
   NavbarMenuItem,
-  NavbarMenuToggle,
   NavbarMenu,
 } from "@heroui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ThemeSwitcher from "./ThemeSwitcher";
 
 import { BeakerIcon, XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid'
