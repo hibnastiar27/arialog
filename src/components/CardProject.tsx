@@ -36,16 +36,16 @@ const CardProject = ({ judul, tahun, kategori, github, demo, tech }: any) => {
       <h1 className='text-2xl font-bold'>{judul}</h1>
       <div className='flex justify-between items-center'>
         <div id='yearKategori' className='flex items-center gap-4 text-gray font-medium'>
-          <p className='py-2 px-4 rounded-full font-bold bg-primary w-fit text-white dark:text-primary dark:bg-white'>{tahun}</p>
+          <p className='py-2 px-4 rounded-full font-bold bg-primary w-fit text-white dark:bg-gray-300'>{tahun}</p>
           <p>{kategori}</p>
         </div>
 
         <div className="link flex gap-2 items-center">
-          <Link target='_blank' href={github} className='github bg-primary dark:bg-white w-10 h-10 rounded-full flex justify-center items-center'>
-            <LogoGithub color="text-white dark:text-primary" />
+          <Link target='_blank' href={github} className='github bg-primary dark:bg-gray-300 w-10 h-10 rounded-full flex justify-center items-center'>
+            <LogoGithub color="text-white" />
           </Link>
-          <Link target='_blank' href={demo} className='demo bg-primary dark:bg-white w-10 h-10 rounded-full flex justify-center items-center'>
-            <GlobeAltIcon className='w-6 h-6 text-white dark:text-primary' />
+          <Link target='_blank' href={demo} className='demo bg-primary dark:bg-gray-300 w-10 h-10 rounded-full flex justify-center items-center'>
+            <GlobeAltIcon className='w-6 h-6 text-white' />
           </Link>
         </div>
       </div>
