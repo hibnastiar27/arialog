@@ -1,8 +1,8 @@
-import React from 'react'
-import { Image } from '@heroui/react'
-import { Accordion, AccordionItem } from '@heroui/react'
+import React, { useEffect, useState } from 'react'
+import { Accordion, AccordionItem, Image, Skeleton } from '@heroui/react'
 
 const CardComponent = () => {
+
   return (
     <div className='flex flex-col md:flex-row gap-4 w-full '>
       <div className="flex flex-col gap-4 w-full h-fit border rounded-xl border-gray-500  p-4">
