@@ -6,8 +6,14 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  NavbarMenuItem,
   NavbarMenu,
+  Modal,
+  Button,
+  useDisclosure,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
 } from "@heroui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -26,7 +32,8 @@ const LogoArialog = () => {
 }
 
 const NavbarComponent = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
     {
@@ -41,48 +48,75 @@ const NavbarComponent = () => {
 
   const pathname = usePathname();
   return (
-    <Navbar maxWidth="xl" isBordered className="bg-white dark:bg-[#111111]" isBlurred={false} onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen}>
-      <NavbarBrand>
-        <Link href="/" className="flex items-center gap-2">
-          <LogoArialog />
-          <p className="text-lg font-bold">ARIALOG.</p>
-        </Link>
-      </NavbarBrand>
-      <NavbarContent justify="end"  >
-        {menuItems.map((item, index) => {
-          return (
-            <NavbarItem className="hidden sm:block" key={index}>
-              <Link className={`${pathname == item.href ? 'font-medium' : 'text-gray-1000 hover:text-gray-foreground duration-300'}`} href={item.href}>
-                {item.label}
-              </Link>
-            </NavbarItem>
-          )
-        })}
-        <ThemeSwitcher />
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden relative p-2"
-        >
-          <div className={`transition-transform duration-300 transform ${isMenuOpen ? "rotate-90" : ""}`}>
-            {isMenuOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
-          </div>
-        </button>
-      </NavbarContent>
+    <div className="fixed sm:static bottom-0 w-full z-50">
+      <Navbar maxWidth="xl" className="bg-white/0 dark:bg-[#111]/50" isBlurred={true}>
+        <NavbarBrand>
+          <Link href="/" className="flex items-center gap-2">
+            <LogoArialog />
+            <p className="text-lg font-bold">ARIALOG.</p>
+          </Link>
+        </NavbarBrand>
+        <NavbarContent justify="end">
+          {menuItems.map((item, index) => {
+            return (
+              <NavbarItem className="hidden sm:block" key={index}>
+                <Link className={`${pathname == item.href ? 'font-medium shadow-xl shadow-gray-400 border-gray-500 dark:border-gray bg-gradient-to-tr from-gray-100 to-gray-500 dark:from-gray-500 dark:to-gray-1000 text-foreground duration-300' : 'text-gray-1000 hover:text-foreground border-transparent duration-300'} border rounded-lg py-2 px-3 duration-300`} href={item.href}>
+                  {item.label}
+                </Link>
+              </NavbarItem>
+            )
+          })}
+          <ThemeSwitcher />
+          <button
+            onClick={onOpen}
+            className="sm:hidden"
+          >
+            <div className={`transition-transform duration-300 transform ${isOpen ? "rotate-90" : ""}`}>
+              {isOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
+            </div>
+          </button>
+          <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+            <ModalContent className="w-full">
+              {(
+                <>
+                  <ModalHeader className="flex gap-2 items-center">
+                    <LogoArialog />
+                    <p className="text-lg font-bold">ARIALOG.</p>
+                  </ModalHeader>
+                  <ModalBody>
+                    {menuItems.map((item, index) => (
+                      <Link
+                        key={index}
+                        className={`${pathname == item.href ?
+                          'font-medium shadow-xl shadow-gray-400 border-gray-500 dark:border-gray bg-gradient-to-tr from-gray-100 to-gray-500 dark:from-gray-500 dark:to-gray-1000 text-foreground duration-300' :
+                          'text-gray-1000 hover:text-foreground border-transparent duration-300'} border rounded-lg py-2 px-3 duration-300`}
+                        href={item.href}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </ModalBody>
+                </>
+              )}
+            </ModalContent>
+          </Modal>
+        </NavbarContent>
 
-      <NavbarMenu className="bg-white dark:bg-[#111]">
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+        <NavbarMenu className="bg-white/0 dark:bg-[#111]/50 h-fit">
+          {menuItems.map((item, index) => (
             <a
-              className={`${pathname == item.href ? 'text-primary font-medium' : ''}`}
+              key={index}
+              className={`${pathname == item.href ?
+                'font-medium shadow-xl shadow-gray-400 border-gray-500 dark:border-gray bg-gradient-to-tr from-gray-100 to-gray-500 dark:from-gray-500 dark:to-gray-1000 text-foreground duration-300' :
+                'text-gray-1000 hover:text-foreground border-transparent duration-300'} border rounded-lg py-2 px-3 duration-300`}
               href={item.href}
             >
               {item.label}
             </a>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </Navbar >
+          ))}
+        </NavbarMenu>
+      </Navbar >
+    </div>
   )
 }
 
