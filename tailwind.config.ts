@@ -26,6 +26,7 @@ const config: Config = {
       themes: {
         light: {
           colors: {
+            // color untuk pattern #8B8D98
             background: "#FFFFFF",
             foreground: "#111111",
             primary: {
