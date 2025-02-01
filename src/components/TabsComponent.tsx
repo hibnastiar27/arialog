@@ -5,8 +5,8 @@ import { Tabs, Tab } from "@heroui/react";
 import CardComponent from './CardComponent';
 const TabsComponent = () => {
   return (
-    <div className='flex flex-col justify-center items-center'>
-      <Tabs size="lg" variant="light" radius="full" color="primary" aria-label="Tabs About Me">
+    <div className='flex flex-col sm:justify-start sm:items-start justify-center items-center'>
+      <Tabs size="lg" variant="light" radius="full" color="default" aria-label="Tabs About Me">
         <Tab title="Educations" className=''>
           <div className='w-fit dark:text-foreground'>
             <CardComponent />
@@ -31,7 +31,7 @@ const TabsComponent = () => {
           </div>
         </Tab>
       </Tabs>
-    </div>
+    </div >
   )
 }
 

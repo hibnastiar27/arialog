@@ -48,8 +48,12 @@ const NavbarComponent = () => {
 
   const pathname = usePathname();
   return (
-    <div className="fixed sm:static bottom-0 w-full z-50">
-      <Navbar maxWidth="xl" className="bg-white/0 dark:bg-[#111]/50" isBlurred={true}>
+    <div className="fixed w-full sm:top-0 sm:bottom-auto bottom-0 z-20">
+      <Navbar
+        maxWidth="xl"
+        disableAnimation
+        className="bg-white/0 dark:bg-[#111]/50 h-fit"
+        isBlurred={true}>
         <NavbarBrand>
           <Link href="/" className="flex items-center gap-2">
             <LogoArialog />
@@ -116,7 +120,7 @@ const NavbarComponent = () => {
           ))}
         </NavbarMenu>
       </Navbar >
-    </div>
+    </div >
   )
 }
 
