@@ -37,10 +37,6 @@ const NavbarComponent = () => {
       label: "Project",
       href: "/project",
     },
-    {
-      label: "Blog",
-      href: "/blog",
-    }
   ];
 
   const pathname = usePathname();
