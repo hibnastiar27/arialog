@@ -35,7 +35,7 @@ const page = () => {
               Fullstack Developer
             </h1>
             <p className="text-gray-1000 ">Transforming ideas into code while learning and thriving in Artificial Intelligence.</p>
-            <button className="py-2 px-3 rounded-full border border-gray-600 bg-gradient-to-r from-gray-50 to-gray-500 dark:from-gray-50 dark:to-gray dark:text-white duration-500 ease-in-out hover:duration-500 hover:shadow-xl hover:shadow-pink-500/20">Contact Me</button>
+            <button className="py-2 px-3 rounded-full border border-gray-600 bg-gradient-to-r from-gray-50 to-gray-500 dark:from-gray-50 dark:to-gray dark:text-white duration-500 ease-in-out hover:duration-500 hover:shadow-xl hover:shadow-pink-500/20 font-semibold">Contact Me</button>
           </div>
           <div className="w-full sm:w-fit flex justify-center sm:justify-start">
             <Tooltip

@@ -41,8 +41,8 @@ const NavbarComponent = () => {
       href: "/",
     },
     {
-      label: "Project",
-      href: "/project",
+      label: "Show Case",
+      href: "/show-case",
     },
   ];
 
