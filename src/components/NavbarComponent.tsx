@@ -8,19 +8,16 @@ import {
   NavbarItem,
   NavbarMenu,
   Modal,
-  Button,
   useDisclosure,
   ModalContent,
   ModalHeader,
   ModalBody,
-  ModalFooter,
 } from "@heroui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import ThemeSwitcher from "./ThemeSwitcher";
 
-import { BeakerIcon, XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid'
+import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid'
 
 const LogoArialog = () => {
   return (

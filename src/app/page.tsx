@@ -2,6 +2,7 @@
 
 import { Tooltip } from "@heroui/react";
 import TabsComponent from "@/components/TabsComponent";
+import Image from "next/image";
 
 
 const StatusWork = () => {
@@ -47,7 +48,7 @@ const page = () => {
                 content: ["py-2 px-4 shadow-xl", "text-black font-bold border border-gray-600 bg-gradient-to-r from-gray-50 to-gray-500 dark:from-gray-50 dark:to-gray dark:text-white"],
               }}
               content="Nur Aria Hibnastiar">
-              <img src="/img/profile.jpg" alt="photos-profile" className=" w-[200px] h-[200px] md:w-[300px] md:h-[300px] object-cover rounded-full hover:shadow-2xl hover:shadow-pink-500/20 hover:duration-500 duration-500" />
+              <Image src="/img/profile.jpg" width={1000} height={1000} alt="photos-profile" className=" w-[200px] h-[200px] md:w-[300px] md:h-[300px] object-cover rounded-full hover:shadow-2xl hover:shadow-pink-500/20 hover:duration-500 duration-500" />
             </Tooltip>
           </div>
         </main >

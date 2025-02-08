@@ -4,9 +4,14 @@ import React from 'react'
 import Link from 'next/link'
 import { GlobeAltIcon } from '@heroicons/react/24/solid'
 import { Accordion, AccordionItem } from '@heroui/react'
+import Image from 'next/image'
+
+interface LogoGithubProps {
+  color: string;
+}
 
 
-const LogoGithub = ({ color }: any) => {
+const LogoGithub = ({ color }: LogoGithubProps) => {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" className={`${color} fill-current`} xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0_2492_238)">
@@ -29,10 +34,19 @@ const LogoGithub = ({ color }: any) => {
   )
 }
 
-const CardProject = ({ judul, tahun, kategori, github, demo, tech }: any) => {
+interface CardProjectProps {
+  judul: string;
+  tahun: number;
+  kategori: string;
+  github: string;
+  demo: string;
+  tech: string[];
+}
+
+const CardProject = ({ judul, tahun, kategori, github, demo, tech }: CardProjectProps) => {
   return (
     <div className='space-y-3 p-4 border rounded-3xl border-gray/20'>
-      <img src="img/profile.jpg" alt="thumbnail-judul" className='w-full h-[200px] object-cover rounded-2xl' />
+      <Image width={1000} height={1000} src="/img/profile.jpg" alt="thumbnail-judul" className='w-full h-[200px] object-cover rounded-2xl' />
       <h1 className='text-2xl font-bold'>{judul}</h1>
       <div className='flex justify-between items-center'>
         <div id='yearKategori' className='flex items-center gap-4 text-gray font-medium'>

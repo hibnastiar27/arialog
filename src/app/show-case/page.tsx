@@ -8,7 +8,7 @@ const Project = () => {
       'id': 1,
       'nama': 'Personal Website Portfolio 2025',
       'kategori': "website",
-      'tahun': '2024',
+      'tahun': 2024,
       'link_github': 'https://github.com/hibnastiar27',
       'link_demo': 'https://skripsi.arialog.com',
       'tech_stack': [
@@ -19,7 +19,7 @@ const Project = () => {
       'id': 1,
       'nama': 'Personal Website',
       'kategori': "website",
-      'tahun': '2024',
+      'tahun': 2024,
       'link_github': 'https://github.com/hibnastiar27',
       'link_demo': 'https://skripsi.arialog.com',
       'tech_stack': [
@@ -30,7 +30,7 @@ const Project = () => {
       'id': 1,
       'nama': 'Personal Website Portfolio 2025 awdawd awdawd awdawd',
       'kategori': "website",
-      'tahun': '2024',
+      'tahun': 2024,
       'link_github': 'https://github.com/hibnastiar27',
       'link_demo': 'https://skripsi.arialog.com',
       'tech_stack': [
@@ -56,7 +56,7 @@ const Project = () => {
                 github={item.link_github}
                 demo={item.link_demo}
                 tech={item.tech_stack}
-              />
+                kategori={''} />
             )
           })}
         </div>

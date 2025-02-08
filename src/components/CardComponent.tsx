@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Accordion, AccordionItem, Image, Skeleton } from '@heroui/react'
+import React from 'react'
+import { Accordion, AccordionItem, Image } from '@heroui/react'
 
 const CardComponent = () => {
 
