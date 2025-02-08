@@ -36,10 +36,17 @@ const NavbarComponent = () => {
     {
       label: "About Me",
       href: "/",
+      status: "ready"
     },
     {
       label: "Show Case",
       href: "/show-case",
+      status: "soon"
+    },
+    {
+      label: "Nulis",
+      href: "/show-case",
+      status: "soon"
     },
   ];
 
@@ -61,9 +68,15 @@ const NavbarComponent = () => {
           {menuItems.map((item, index) => {
             return (
               <NavbarItem className="hidden sm:block" key={index}>
-                <Link className={`${pathname == item.href ? 'font-medium shadow-xl shadow-gray-400 border-gray-500 dark:border-gray bg-gradient-to-tr from-gray-100 to-gray-500 dark:from-gray-500 dark:to-gray-1000 text-foreground duration-300' : 'text-gray-1000 hover:text-foreground border-transparent duration-300'} border rounded-lg py-2 px-3 duration-300`} href={item.href}>
-                  {item.label}
-                </Link>
+                {item.status == "ready" ?
+                  <Link className={`${pathname == item.href ? 'font-medium shadow-xl shadow-gray-400 border-gray-500 dark:border-gray bg-gradient-to-tr from-gray-100 to-gray-500 dark:from-gray-500 dark:to-gray-1000 text-foreground duration-300' : 'text-gray-1000 hover:text-foreground border-transparent duration-300'} border rounded-lg py-2 px-3 duration-300`} href={item.href}>
+                    {item.label}
+                  </Link> :
+                  <Link href="#" className="cursor-not-allowed text-gray-900">
+                    {item.label}{"  "}
+                    <span className=" bg-pink-500 px-2 py-1 text-white rounded-full text-sm">soon</span>
+                  </Link>
+                }
               </NavbarItem>
             )
           })}
