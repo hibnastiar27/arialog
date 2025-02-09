@@ -26,16 +26,16 @@ const TabsComponent = ({ educations, experiences, resumeUrl }: TabsProps) => {
   return (
     <div className='flex flex-col sm:justify-start sm:items-start justify-center items-center'>
       <Tabs size="lg" variant="light" radius="full" color="default" aria-label="Tabs About Me">
-        <Tab title="Educations" className=''>
-          <div className='*:w-[400px] grid sm:grid-cols-2 lg:grid-cols-3 place-content-center gap-4 dark:text-foreground'>
+        <Tab title="Educations" className='w-full'>
+          <div className='w-full flex flex-col md:flex-row gap-4 dark:text-foreground'>
             {educations.map((edu, index) => (
               <CardComponent key={index} {...edu} />
             ))}
           </div>
         </Tab>
 
-        <Tab title="Experiences" className=''>
-          <div className='*:w-[400px] grid sm:grid-cols-2 lg:grid-cols-3 place-content-center gap-4 dark:text-foreground'>
+        <Tab title="Experiences" className='w-full'>
+          <div className='w-full flex flex-col md:flex-row gap-4 dark:text-foreground'>
             {experiences.map((exp, index) => (
               <CardComponent key={index} {...exp} />
             ))}

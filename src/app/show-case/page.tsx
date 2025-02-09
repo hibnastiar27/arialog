@@ -39,7 +39,7 @@ const Project = () => {
     }
   ]
   return (
-    <div className="w-full md:max-w-screen-xl md:mx-auto flex flex-col gap-6 px-6">
+    <div className="w-full mb-16 sm:mt-16 md:max-w-screen-xl md:mx-auto flex flex-col gap-6 px-6">
       <div className="w-full">
         <div className="my-4 flex gap-2">
           <button className='px-4 py-2 bg-primary text-white rounded-full'>All</button>

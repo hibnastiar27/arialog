@@ -12,7 +12,8 @@ const spaceGrotesk = Space_Grotesk({
 
 
 export const metadata: Metadata = {
-  title: 'Belajar Next JS'
+  title: 'Aria[log]',
+  icons: '/img/profile.jpg'
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

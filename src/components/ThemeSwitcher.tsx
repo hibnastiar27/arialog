@@ -11,7 +11,7 @@ const ThemeSwitcher = () => {
   useEffect(() => setMounted(true), [])
 
   if (!mounted) return (
-    <Spinner aria-label="Loading theme" />
+    <Spinner aria-label="Loading theme" color="danger" />
   )
 
   if (resolvedTheme === 'dark') {
