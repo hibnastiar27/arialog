@@ -22,7 +22,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       lang='en'
       className={spaceGrotesk.variable}
       suppressHydrationWarning>
-      <body className="font-spaceGrotesk selection:bg-pink-500 selection:text-white">
+      <body className="font-spaceGrotesk selection:bg-pink-500 selection:text-white overflow-y-scroll">
         <Providers>
           <NavbarComponent />
           {children}

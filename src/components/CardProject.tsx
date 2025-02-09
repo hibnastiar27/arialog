@@ -3,9 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { GlobeAltIcon } from '@heroicons/react/24/solid'
-import { Accordion, AccordionItem } from '@heroui/react'
-import Image from 'next/image'
-
+import { Accordion, AccordionItem, Image } from '@heroui/react'
 interface LogoGithubProps {
   color: string;
 }
@@ -41,25 +39,26 @@ interface CardProjectProps {
   github: string;
   demo: string;
   tech: string[];
+  url_img: string;
 }
 
-const CardProject = ({ judul, tahun, kategori, github, demo, tech }: CardProjectProps) => {
+const CardProject = ({ judul, tahun, kategori, github, demo, tech, url_img }: CardProjectProps) => {
   return (
     <div className='space-y-3 p-4 border rounded-3xl border-gray/20'>
-      <Image width={1000} height={1000} src="/img/profile.jpg" alt="thumbnail-judul" className='w-full h-[200px] object-cover rounded-2xl' />
-      <h1 className='text-2xl font-bold'>{judul}</h1>
+      <Image isZoomed width={1000} src={url_img} alt="thumbnail-judul" className='w-full h-[150px] object-cover rounded-2xl' />
+      <h1 className='text-xl font-bold'>{judul}</h1>
       <div className='flex justify-between items-center'>
         <div id='yearKategori' className='flex items-center gap-4 text-gray font-medium'>
-          <p className='py-2 px-4 rounded-full font-bold bg-primary w-fit text-white dark:bg-gray-300'>{tahun}</p>
+          <p className='py-2 px-4 rounded-full font-bold bg-gray-200 w-fit text-gray-1000 dark:text-white dark:bg-gray-300'>{tahun}</p>
           <p>{kategori}</p>
         </div>
 
         <div className="link flex gap-2 items-center">
-          <Link target='_blank' href={github} className='github bg-primary dark:bg-gray-300 w-10 h-10 rounded-full flex justify-center items-center'>
-            <LogoGithub color="text-white" />
+          <Link target='_blank' href={github} className='github bg-gray-200 dark:bg-gray-300 w-10 h-10 rounded-full flex justify-center items-center'>
+            <LogoGithub color="dark:text-white text-gray-1000" />
           </Link>
-          <Link target='_blank' href={demo} className='demo bg-primary dark:bg-gray-300 w-10 h-10 rounded-full flex justify-center items-center'>
-            <GlobeAltIcon className='w-6 h-6 text-white' />
+          <Link target='_blank' href={demo} className='demo bg-gray-200 dark:bg-gray-300 w-10 h-10 rounded-full flex justify-center items-center'>
+            <GlobeAltIcon className='w-6 h-6 text-gray-1000 dark:text-white' />
           </Link>
         </div>
       </div>

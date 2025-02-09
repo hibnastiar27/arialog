@@ -21,11 +21,6 @@ import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid'
 
 const LogoArialog = () => {
   return (
-    // <svg width="30" height="32" viewBox="0 0 30 32" className="fill-current" xmlns="http://www.w3.org/2000/svg">
-    //   <path fillRule="evenodd" clipRule="evenodd" d="M0 31.9927L10.6097 31.9927L25.2259 10.4645L19.1629 24.7986L27.6151 23.8672L29.7515 0L0 31.9927ZM27.154 29.0179L16.9687 29.9862L16.12 31.9927L26.8878 31.9927L27.154 29.0179Z" fill="" />
-    //   <path d="M9.75684 32H26.8437L27.4504 27.6019L10.6668 30.2812L9.75684 32Z" fill="" />
-    // </svg>
-
     <motion.svg
       width="30"
       height="32"
@@ -102,11 +97,11 @@ const NavbarComponent = () => {
     {
       label: "Show Case",
       href: "/show-case",
-      status: "soon"
+      status: "ready"
     },
     {
-      label: "Nulis",
-      href: "/show-case",
+      label: "Blog",
+      href: "/blog",
       status: "soon"
     },
   ];
