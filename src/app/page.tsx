@@ -18,21 +18,33 @@ const dataEducations = [
     institution: "Institut Teknologi Nasional Malang",
     duration: "3,5 Years",
     description: ["Algoritma dan Pemrograman", "Struktur Data", "Web Programming"],
-    imageUrl: "https://heroui.com/images/album-cover.png"
+    imageUrl: "/img/dark-itn.png"
   },
   {
-    title: "S1 - Teknik Informatika",
-    institution: "Institut Teknologi Nasional Malang",
-    duration: "3,5 Years",
-    description: ["Algoritma dan Pemrograman", "Struktur Data", "Web Programming"],
-    imageUrl: "https://heroui.com/images/album-cover.png"
+    title: "MSIB 5  Data Analyst & Software Engineer",
+    institution: "RevoU",
+    duration: "5 Month",
+    description: [
+      "Data Analyst",
+      "Python",
+      "Exploratori Data Analyst",
+    ],
+    imageUrl: "/img/dark-revou.png"
   },
   {
-    title: "S1 - Teknik Informatika",
-    institution: "Institut Teknologi Nasional Malang",
-    duration: "3,5 Years",
-    description: ["Algoritma dan Pemrograman", "Struktur Data", "Web Programming"],
-    imageUrl: "https://heroui.com/images/album-cover.png"
+    title: "MSIB 6 - Website Platform Edukasi",
+    institution: "Educourse",
+    duration: "5 Month",
+    description: [
+      "Python",
+      "HTML",
+      "CSS",
+      "Javascript",
+      "Bootstrap",
+      "Django",
+      "Web Programming",
+    ],
+    imageUrl: "/img/dark-edu.png"
   },
 ]
 

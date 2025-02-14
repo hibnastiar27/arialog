@@ -15,6 +15,7 @@ const CardComponent = ({ title, institution, duration, imageUrl, description }: 
     <div className='flex flex-col md:flex-row gap-4 w-full'>
       <div className="flex flex-col gap-4 w-full h-fit border rounded-xl border-gray-500  p-4">
         <Image
+          className='dark:border border-gray-500'
           isZoomed
           alt={title}
           src={imageUrl}
