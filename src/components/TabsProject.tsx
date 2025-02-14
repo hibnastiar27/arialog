@@ -2,8 +2,6 @@
 
 import React from 'react'
 import { Tabs, Tab } from "@heroui/react";
-import CardProject from './CardProject';
-
 
 const TabsProject = () => {
   return (
