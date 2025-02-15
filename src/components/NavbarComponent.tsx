@@ -159,15 +159,26 @@ const NavbarComponent = () => {
                   </ModalHeader>
                   <ModalBody>
                     {menuItems.map((item, index) => (
-                      <Link
-                        key={index}
-                        className={`${pathname == item.href ?
-                          'font-medium shadow-xl shadow-gray-400 border-gray-500 dark:border-gray bg-gradient-to-tr from-gray-100 to-gray-500 dark:from-gray-500 dark:to-gray-1000 text-foreground duration-300' :
-                          'text-gray-1000 hover:text-foreground border-transparent duration-300'} border rounded-lg py-2 px-3 duration-300`}
-                        href={item.href}
-                      >
-                        {item.label}
-                      </Link>
+                      item.status == "ready" ?
+                        <Link
+                          key={index}
+                          className={`${pathname == item.href ?
+                            'font-medium shadow-xl shadow-gray-400 border-gray-500 dark:border-gray bg-gradient-to-tr from-gray-100 to-gray-500 dark:from-gray-500 dark:to-gray-1000 text-foreground duration-300' :
+                            'text-gray-1000 hover:text-foreground border-transparent duration-300'} border rounded-lg py-2 px-3 duration-300`}
+                          href={item.href}
+                        >
+                          {item.label}
+                        </Link>
+                        :
+                        <p
+                          key={index}
+                          className={'rounded-lg py-2 px-3 text-gray-1000'}
+                        >
+                          <span>
+                            {item.label}
+                          </span>
+                          <span className=" bg-pink-500 px-2 py-1 text-white rounded-full text-sm">soon</span>
+                        </p>
                     ))}
                   </ModalBody>
                 </>
@@ -175,20 +186,6 @@ const NavbarComponent = () => {
             </ModalContent>
           </Modal>
         </NavbarContent>
-
-        <NavbarMenu className="bg-white/0 dark:bg-[#111]/50 h-fit">
-          {menuItems.map((item, index) => (
-            <a
-              key={index}
-              className={`${pathname == item.href ?
-                'font-medium shadow-xl shadow-gray-400 border-gray-500 dark:border-gray bg-gradient-to-tr from-gray-100 to-gray-500 dark:from-gray-500 dark:to-gray-1000 text-foreground duration-300' :
-                'text-gray-1000 hover:text-foreground border-transparent duration-300'} border rounded-lg py-2 px-3 duration-300`}
-              href={item.href}
-            >
-              {item.label}
-            </a>
-          ))}
-        </NavbarMenu>
       </Navbar >
     </div >
   )
