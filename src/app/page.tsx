@@ -1,6 +1,18 @@
 'use client'
 
-import { Tooltip } from "@heroui/react";
+import {
+  Tooltip,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+  Form,
+  Input,
+  Textarea
+} from "@heroui/react";
 import TabsComponent from "@/components/TabsComponent";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -87,6 +99,7 @@ const StatusWork = () => {
 }
 
 const page = () => {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
     <>
       <div className="w-full h-screen justify-center items-center flex sm:max-w-screen-xl sm:mx-auto gap-6 px-6 dark:min-h-screen dark:bg-blend-overlay bg-[url('/img/bg-pattern1.png')] dark:bg-[url('/img/bg-pattern.png')] bg-cover bg-center">
@@ -107,7 +120,7 @@ const page = () => {
               {dataAboutMe.title}
             </motion.h1>
             <p className="text-gray-1000 ">{dataAboutMe.short_bio}</p>
-            <button className="py-2 px-3 rounded-full border border-gray-600 bg-gradient-to-r from-gray-50 to-gray-500 dark:from-gray-50 dark:to-gray dark:text-white duration-500 ease-in-out hover:duration-500 hover:shadow-xl hover:shadow-pink-500/20 font-semibold">Contact Me</button>
+            <Button onPress={onOpen} className="py-2 px-3 rounded-full border border-gray-600 bg-gradient-to-r from-gray-50 to-gray-500 dark:from-gray-50 dark:to-gray dark:text-white duration-500 ease-in-out hover:duration-500 hover:shadow-xl hover:shadow-pink-500/20 font-semibold">Contact Me</Button>
           </div>
           <div className="w-full sm:w-fit flex justify-center sm:justify-start">
             <Tooltip
@@ -129,6 +142,52 @@ const page = () => {
         <h1 className="text-4xl md:text-6xl font-bold text-center sm:text-start mb-5">About Me</h1>
         <TabsComponent educations={dataEducations} experiences={dataExperiences} resumeUrl={dataAboutMe.resumeUrl} />
       </div>
+
+      <Modal backdrop="blur" isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">Contact Me</ModalHeader>
+              <Form>
+                <ModalBody>
+                  <Input
+                    isRequired
+                    errorMessage="Please enter a valid fullname"
+                    label="Full Name"
+                    labelPlacement="outside"
+                    name="fullname"
+                    placeholder="Enter your full name"
+                    type="text"
+                  />
+                  <Input
+                    isRequired
+                    errorMessage="Please enter a valid email"
+                    label="Email"
+                    labelPlacement="outside"
+                    name="email"
+                    placeholder="Enter your email"
+                    type="email"
+                  />
+                  <Textarea
+                    isRequired
+                    label="Description"
+                    labelPlacement="outside"
+                    placeholder="Enter your description"
+                  />
+                </ModalBody>
+                <ModalFooter>
+                  <Button className="text-pink-500" variant="light" onPress={onClose}>
+                    Close
+                  </Button>
+                  <Button className="bg-pink-500 text-white" onPress={onClose}>
+                    Send
+                  </Button>
+                </ModalFooter>
+              </Form>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </>
   )
 }
