@@ -5,40 +5,83 @@ import {
 } from '@heroui/react';
 import Link from 'next/link';
 
+const dataShowcase = [
+  {
+    "title": "sistem informasi customer relationship management toko elektronik",
+    "slug": "sistem-informasi-customer-relationship-management-toko-elektronik",
+    "link_demo": "www.arialog.my.id",
+    "link_github": "www.github.com/hibnastiar27",
+    "url_img": "/img/profile.jpg",
+  },
+  {
+    "title": "sistem informasi customer relationship management toko elektronik",
+    "slug": "sistem-informasi-customer-relationship-management-toko-elektronik",
+    "link_demo": "www.arialog.my.id",
+    "link_github": "www.github.com/hibnastiar27",
+    "url_img": "/img/profile.jpg",
+  },
+  {
+    "title": "sistem informasi customer relationship management toko elektronik",
+    "slug": "sistem-informasi-customer-relationship-management-toko-elektronik",
+    "link_demo": "www.arialog.my.id",
+    "link_github": "www.github.com/hibnastiar27",
+    "url_img": "/img/profile.jpg",
+  },
+  {
+    "title": "sistem informasi customer relationship management toko elektronik",
+    "slug": "sistem-informasi-customer-relationship-management-toko-elektronik",
+    "link_demo": "www.arialog.my.id",
+    "link_github": "www.github.com/hibnastiar27",
+    "url_img": "/img/profile.jpg",
+  },
+  {
+    "title": "sistem informasi customer relationship management toko elektronik",
+    "slug": "sistem-informasi-customer-relationship-management-toko-elektronik",
+    "link_demo": "www.arialog.my.id",
+    "link_github": "www.github.com/hibnastiar27",
+    "url_img": "/img/profile.jpg",
+  },
+  {
+    "title": "sistem informasi customer relationship management toko elektronik",
+    "slug": "sistem-informasi-customer-relationship-management-toko-elektronik",
+    "link_demo": "www.arialog.my.id",
+    "link_github": "www.github.com/hibnastiar27",
+    "url_img": "/img/profile.jpg",
+  },
+  {
+    "title": "sistem informasi customer relationship management toko elektronik",
+    "slug": "sistem-informasi-customer-relationship-management-toko-elektronik",
+    "link_demo": "www.arialog.my.id",
+    "link_github": "www.github.com/hibnastiar27",
+    "url_img": "/img/profile.jpg",
+  },
+]
+
 const BentoCardComponent = () => {
-  const items = [
-    "Item 1",
-    "Item 2",
-    "Item 3",
-    "Item 4",
-    "Item 5",
-    "Item 6",
-    "Item 7",
-  ]; // Ubah jumlah item sesuai kebutuhan
   return (
     <div className="flex flex-col w-full lg:grid lg:grid-cols-3 auto-rows-[minmax(0,1fr)] gap-4 md:p-4">
-      {items.map((item, index) => {
+      {dataShowcase.map((item, index) => {
         let colSpan = "col-span-1";
         let rowSpan = "row-span-1";
 
         // Logika berdasarkan jumlah item
-        if (items.length === 2) {
+        if (dataShowcase.length === 2) {
           if (index === 0) colSpan = "col-span-2";
-        } else if (items.length === 4) {
+        } else if (dataShowcase.length === 4) {
           if (index === 0 || index === 3) colSpan = "col-span-2";
-        } else if (items.length === 5) {
+        } else if (dataShowcase.length === 5) {
           if (index === 0 || index === 4) colSpan = "col-span-2";
           if (index === 1 || index === 2) rowSpan = "row-span-2";
-        } else if (items.length === 6) {
+        } else if (dataShowcase.length === 6) {
           if (index === 0 || index === 5) colSpan = "col-span-2";
           if (index === 1) rowSpan = "row-span-2";
-        } else if (items.length === 7) {
+        } else if (dataShowcase.length === 7) {
           if (index === 0 || index === 6) colSpan = "col-span-2";
         }
 
         return (
           <Link
-            href="#"
+            href={`/show-case/${item.slug}`}
             key={index}
             className={`border dark:border-gray-500 group text-white rounded-2xl relative ${colSpan} ${rowSpan}`}
           >
