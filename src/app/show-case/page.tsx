@@ -67,10 +67,9 @@ const Project = () => {
   // ]
   return (
     <>
-      <section className='header p-8 sm:mt-16 sm:py-16 bg-gray-100'>
+      {/* <section className='header p-8 sm:mt-16 sm:py-16 bg-gray-100'>
         <h1 className='text-5xl sm:text-8xl lg:text-9xl text-center capitalize font-bold'>SHOWCASE</h1>
-        <p></p>
-      </section>
+      </section> */}
       {/* <div className="w-full mb-16 mt-6 sm:mt-16 md:max-w-screen-xl md:mx-auto flex flex-col gap-6 px-6">
         <div className="w-full">
           <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 *:h-fit'>
