@@ -26,7 +26,7 @@ const CardComponent = ({ title, institution, duration, imageUrl, description }: 
           <h1 className="font-bold text-xl">{title}</h1>
           <div className='flex items-center gap-2 justify-between mt-2'>
             <p>{institution}</p>
-            <p className='dark:text-gray-1000'>{duration}</p>
+            <p className='dark:text-gray-1000 text-right'>{duration}</p>
           </div>
           <Accordion variant="light" fullWidth={true} isCompact={true} className="p-0 flex flex-col gap-1 w-full">
             <AccordionItem title="Description" className='dark:text-gray-1000'>

@@ -13,7 +13,7 @@ import {
   Input,
   Textarea
 } from "@heroui/react";
-import TabsComponent from "@/components/TabsComponent";
+import Tabs from "@/components/Tabs";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -24,13 +24,15 @@ const dataAboutMe = {
   "resumeUrl": "https://drive.google.com/file/d/1t08yk-cGzX79Zj-64Dj506NAOCt9Bn6B/preview"
 }
 
+const dataDeskriptions = "I am a 22-year-old fresh graduate with expertise as a full-stack website developer. I have experience working with Next.js, Express.js, MongoDB, and JWT authentication. I participated in MSIB Batch 5 Revou as a Data Analyst. My background also includes serving as a lab assistant, lab coordinator, and workshop speaker. I won 1st place in a UI Design competition and am currently working on various projects, such as a CRM system for an electronics store and a sales analysis dashboard. I am actively seeking job opportunities while deepening my knowledge of Machine Learning through the DBS Foundations Education scholarship."
+
 const dataEducations = [
   {
     title: "S1 - Teknik Informatika",
     institution: "Institut Teknologi Nasional Malang",
     duration: "3,5 Years",
     description: ["Algoritma dan Pemrograman", "Struktur Data", "Web Programming"],
-    imageUrl: "/img/dark-itn.png"
+    imageUrl: "/img/B-ITN-MALANG.png"
   },
   {
     title: "MSIB 5  Data Analyst & Software Engineer",
@@ -41,7 +43,7 @@ const dataEducations = [
       "Python",
       "Exploratori Data Analyst",
     ],
-    imageUrl: "/img/dark-revou.png"
+    imageUrl: "/img/B-REVOU.png"
   },
   {
     title: "MSIB 6 - Website Platform Edukasi",
@@ -56,31 +58,64 @@ const dataEducations = [
       "Django",
       "Web Programming",
     ],
-    imageUrl: "/img/dark-edu.png"
+    imageUrl: "/img/B-EDU.png"
   },
 ]
 
 const dataExperiences = [
   {
     title: "Frontend Developer Intern",
-    institution: "Startup XYZ",
-    duration: "6 Months",
-    description: ["Membangun UI/UX", "Menggunakan Next.js", "Mengintegrasi API"],
-    imageUrl: "https://heroui.com/images/album-cover.png"
+    institution: "PT Kawan Kerja Indonesia",
+    date: "Februari 2024 - Juni 2024",
+    duration: "4 Months",
+    description: [
+      'Contribute to the development of "Kawan Kampus", one of the projects created by PT. Kawan Kerja Indonesia.',
+      'Develop and maintain user interfaces for web applications using HTML, CSS and JavaScript.',
+      'Responsible for translating Figma designs into code for the "Kawan Kampus" project.',
+      'Participate in webinars organized by PT. Kawan Kerja Indonesia.',
+    ],
+    link_sertifikat: "https://drive.google.com/file/d/1zsU_HbRbx9bSFc2Wl8BTJU3s0RFHTbZE/view?usp=sharing",
+    imageUrl: "/img/B-KAWAN-KERJA.png"
   },
   {
-    title: "Frontend Developer Intern",
-    institution: "Startup XYZ",
-    duration: "6 Months",
-    description: ["Membangun UI/UX", "Menggunakan Next.js", "Mengintegrasi API"],
-    imageUrl: "https://heroui.com/images/album-cover.png"
+    title: "Coordinator & Team Leader Laboratorium",
+    institution: "GAMA - Game Animasi Multimedia dan Pengolahan Citra | ITN Malang",
+    date: "Agustus 2023 - Agustus 2024",
+    duration: "1 Years",
+    description: [
+      'Berkontribusi untuk mengatur dan management 25 asisten laboratorium.',
+      'Berkontribusi untuk menjadi penghubung antara kepala laboratorium dan asisten laboratorium.',
+      'Inisitatif untuk membuat modul online pada praktikum animasi dan game periode 2023/2024',
+    ],
+    link_sertifikat: "https://drive.google.com/file/d/1kb7oLNpbTJXflOFc9dhEPIC6CICHr2-G/view?usp=sharing",
+    imageUrl: "/img/B-GAMA.png"
   },
   {
-    title: "Frontend Developer Intern",
-    institution: "Startup XYZ",
-    duration: "6 Months",
-    description: ["Membangun UI/UX", "Menggunakan Next.js", "Mengintegrasi API"],
-    imageUrl: "https://heroui.com/images/album-cover.png"
+    title: "Instructure & Asisten Laboratorium",
+    institution: "GAMA - Game Animasi Multimedia dan Pengolahan Citra | ITN Malang",
+    date: "Agustus 2021 - Agustus 2024",
+    duration: "3 Years",
+    description: [
+      'Mengajar praktikum Multimedia dan Pengolahan Citra di semester ganjil',
+      'Mengajar praktikum Animasi dan Game di semester genap',
+      'Berkontribusi Membuat Modul praktikum Multimedia dan pengolahan citra di semester ganjil.',
+      'Berkontribusi Membuat Modul praktikum Animasi dan Game di semester genap.',
+    ],
+    link_sertifikat: "https://drive.google.com/file/d/1kb7oLNpbTJXflOFc9dhEPIC6CICHr2-G/view?usp=sharing",
+    imageUrl: "/img/B-GAMA.png"
+  },
+  {
+    title: "Pemateri : Trial Class Make it Mobile Games WIth Unity",
+    institution: "Teknik Informatika (S-1) & GAMA Laboratorium | ITN Malang",
+    date: "Mei 2024",
+    duration: "3 Years",
+    description: [
+      'Memperkenalkan dasar-dasar Unity dan pengembangan game mobile.',
+      'Membimbing peserta dalam pembuatan game sederhana menggunakan C#.',
+      'Menjelaskan proses build dan deployment game ke platform mobile.',
+    ],
+    link_sertifikat: "https://drive.google.com/file/d/1QZedhCNlp4K9WJvQP-UNxPaGFR6xhJc9/view?usp=sharing",
+    imageUrl: "/img/B-ITXGAMA.png"
   },
 ]
 
@@ -98,7 +133,7 @@ const StatusWork = () => {
   )
 }
 
-const page = () => {
+const Page = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
     <>
@@ -140,7 +175,7 @@ const page = () => {
 
       <div className="sm:max-w-screen-xl sm:mx-auto px-6 mb-5">
         <h1 className="text-4xl md:text-6xl font-bold text-center sm:text-start mb-5">About Me</h1>
-        <TabsComponent educations={dataEducations} experiences={dataExperiences} resumeUrl={dataAboutMe.resumeUrl} />
+        <Tabs des={dataDeskriptions} educations={dataEducations} experiences={dataExperiences} resumeUrl={dataAboutMe.resumeUrl} />
       </div>
 
       <Modal backdrop="blur" isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -148,8 +183,8 @@ const page = () => {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">Contact Me</ModalHeader>
-              <Form>
-                <ModalBody>
+              <Form className="w-full">
+                <ModalBody className="w-full">
                   <Input
                     isRequired
                     errorMessage="Please enter a valid fullname"
@@ -175,7 +210,7 @@ const page = () => {
                     placeholder="Enter your description"
                   />
                 </ModalBody>
-                <ModalFooter>
+                <ModalFooter className="flex w-full">
                   <Button className="text-pink-500" variant="light" onPress={onClose}>
                     Close
                   </Button>
@@ -192,4 +227,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
