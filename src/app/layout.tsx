@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { Space_Grotesk } from 'next/font/google'
 
 import NavbarComponent from "@/components/NavbarComponent";
-import FooterComponent from "@/components/FooterComponent";
+import FooterGradient from "@/components/FooterGradient";
 import { Providers } from "@/context/ThemeProvider";
 import "./global.css"
 
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Providers>
           <NavbarComponent />
           {children}
-          <FooterComponent />
+          <FooterGradient />
         </Providers>
       </body>
     </html>
