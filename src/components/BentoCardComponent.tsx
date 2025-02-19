@@ -1,9 +1,9 @@
 'use client'
-import React from 'react'
+import { useEffect, useState } from 'react';
 import {
   Image,
 } from '@heroui/react';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 const dataShowcase = [
   {
@@ -58,6 +58,8 @@ const dataShowcase = [
 ]
 
 const BentoCardComponent = () => {
+  const [open, setOpen] = useState(false);
+  console.log(open)
   return (
     <div className="flex flex-col w-full lg:grid lg:grid-cols-3 auto-rows-[minmax(0,1fr)] gap-4 md:p-4">
       {dataShowcase.map((item, index) => {
@@ -80,8 +82,9 @@ const BentoCardComponent = () => {
         }
 
         return (
-          <Link
-            href={`/show-case/${item.slug}`}
+          <button
+            onClick={() => setOpen(true)}
+            // href={`/show-case/${item.slug}`}
             key={index}
             className={`border dark:border-gray-500 group text-white rounded-2xl relative ${colSpan} ${rowSpan}`}
           >
@@ -100,7 +103,7 @@ const BentoCardComponent = () => {
                 {/* <Link href="">See More</Link> */}
               </div>
             </div>
-          </Link>
+          </button>
         );
       })}
     </div>
