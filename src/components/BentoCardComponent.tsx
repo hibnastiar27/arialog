@@ -61,7 +61,7 @@ const BentoCardComponent = () => {
   const [open, setOpen] = useState(false);
   console.log(open)
   return (
-    <div className="flex flex-col w-full lg:grid lg:grid-cols-3 auto-rows-[minmax(0,1fr)] gap-4 md:p-4">
+    <div className="flex flex-col w-full lg:grid lg:grid-cols-3 auto-rows-[minmax(0,1fr)] gap-4">
       {dataShowcase.map((item, index) => {
         let colSpan = "col-span-1";
         let rowSpan = "row-span-1";

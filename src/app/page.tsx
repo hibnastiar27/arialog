@@ -7,6 +7,8 @@ import {
 } from "@heroui/react";
 import Tabs from "@/components/Tabs";
 import ContactComponent from "@/components/ContactComponent";
+import BentoCardComponent from "@/components/BentoCardComponent";
+import Meteor from "@/components/Meteor";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -130,7 +132,7 @@ const Page = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
     <>
-      <div className="w-full h-screen justify-center items-center flex sm:max-w-screen-xl sm:mx-auto gap-6 px-6 dark:min-h-screen dark:bg-blend-overlay bg-[url('/img/bg-pattern1.png')] dark:bg-[url('/img/bg-pattern.png')] bg-cover bg-center">
+      <div className="w-full h-screen justify-center items-center flex sm:max-w-screen-lg sm:mx-auto gap-6 px-6 dark:min-h-screen dark:bg-blend-overlay bg-[url('/img/bg-pattern1.png')] dark:bg-[url('/img/bg-pattern.png')] bg-cover bg-center">
         <main className="flex flex-col-reverse sm:flex-row justify-center items-center gap-4 sm:w-full">
           <div className="md:w-[60%] flex flex-col gap-2 sm:gap-5 items-center text-center">
             <StatusWork />
@@ -166,11 +168,28 @@ const Page = () => {
         </main >
       </div >
 
-      <div className="sm:max-w-screen-xl sm:mx-auto px-6 mb-5">
+      {/* About Me */}
+      <div className="sm:max-w-screen-lg sm:mx-auto mb-10 p-4 xl:p-0">
         <h1 className="text-4xl md:text-6xl font-bold text-center sm:text-start mb-5">About Me</h1>
         <Tabs des={dataDeskriptions} educations={dataEducations} experiences={dataExperiences} resumeUrl={dataAboutMe.resumeUrl} />
       </div>
 
+      {/* Showcase */}
+      <section className="sm:max-w-screen-lg sm:mx-auto mb-10 p-4 xl:p-0">
+        <h1 className="text-4xl md:text-6xl font-bold text-center sm:text-start">Showcase</h1>
+        <p className="text-gray-1000 mb-4 text-center md:text-start">Best Projects I've Worked On</p>
+        <BentoCardComponent />
+        <div className="w-full flex justify-center mt-4">
+          <button className="py-2 px-3 rounded-full border border-gray-600 bg-gradient-to-r from-gray-50 to-gray-500 dark:from-gray-50 dark:to-gray dark:text-white duration-500 ease-in-out hover:duration-500 hover:shadow-xl hover:shadow-pink-500/20 font-semibold">See More</button>
+        </div>
+      </section>
+      {/* 
+      <main className="relative max-w-screen-lg mx-auto z-10 bg-black">
+        <Meteor />
+      </main> */}
+
+
+      {/* Modal Contact Component */}
       <ContactComponent isOpen={isOpen} onOpenChange={onOpenChange} />
     </>
   )
