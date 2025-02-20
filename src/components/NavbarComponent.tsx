@@ -94,8 +94,8 @@ const NavbarComponent = () => {
       status: "ready"
     },
     {
-      label: "Show Case",
-      href: "/show-case",
+      label: "Projects",
+      href: "/project",
       status: "ready"
     },
     {
@@ -109,7 +109,7 @@ const NavbarComponent = () => {
   return (
     <div className="fixed w-full sm:top-0 sm:bottom-auto bottom-0 z-20">
       <Navbar
-        maxWidth="xl"
+        maxWidth="lg"
         disableAnimation
         className="bg-white/0 dark:bg-[#111]/50 h-fit"
         isBlurred={true}>
