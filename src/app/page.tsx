@@ -15,7 +15,7 @@ const dataAboutMe = {
   "title": "Fullstack Developer",
   "short_bio": "Transforming ideas into code while learning and thriving in Artificial Intelligence.",
   "url_img": "/img/profile.jpg",
-  "resumeUrl": "https://drive.google.com/file/d/1t08yk-cGzX79Zj-64Dj506NAOCt9Bn6B/preview"
+  "resumeUrl": "https://drive.google.com/file/d/12Yh88TOvmqvdlxLIMZh7vdsIqJ-iGhw7/preview"
 }
 
 const dataDeskriptions = "I am a 22-year-old fresh graduate with expertise as a full-stack website developer. I have experience working with Next.js, Express.js, MongoDB, and JWT authentication. I participated in MSIB Batch 5 Revou as a Data Analyst. My background also includes serving as a lab assistant, lab coordinator, and workshop speaker. I won 1st place in a UI Design competition and am currently working on various projects, such as a CRM system for an electronics store and a sales analysis dashboard. I am actively seeking job opportunities while deepening my knowledge of Machine Learning through the DBS Foundations Education scholarship."
