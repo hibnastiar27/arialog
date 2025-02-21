@@ -1,17 +1,16 @@
 "use client";
-import { useEffect, useState } from "react";
 import clsx from "clsx";
 import React from "react";
 
-interface MeteorProps {
-  id: number;
-  left: string;
-  delay: string;
-  size: string;
-  color: string;
-}
+// interface MeteorProps {
+//   id: number;
+//   left: string;
+//   delay: string;
+//   size: string;
+//   color: string;
+// }
 
-const colors = ["bg-white", "bg-blue-400", "bg-purple-400"]; // Gunakan class Tailwind langsung
+// const colors = ["bg-white", "bg-blue-400", "bg-purple-400"]; // Gunakan class Tailwind langsung
 
 const Meteor = ({ number }: { number?: number }) => {
   const meteors = new Array(number || 20).fill(true);
