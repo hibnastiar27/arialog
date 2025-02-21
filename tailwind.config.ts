@@ -1,5 +1,7 @@
 const { heroui } = require("@heroui/react");
 
+import { foreignObject } from "framer-motion/client";
+import { babelIncludeRegexes } from "next/dist/build/webpack-config";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
