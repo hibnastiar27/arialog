@@ -8,7 +8,6 @@ import {
 import Tabs from "@/components/Tabs";
 import ContactComponent from "@/components/ContactComponent";
 import BentoCardComponent from "@/components/BentoCardComponent";
-import Meteor from "@/components/Meteor";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -114,6 +113,79 @@ const dataExperiences = [
   },
 ]
 
+const dataShowcase = [
+  {
+    "title": "Penerapan Algoritma Apriori Dalam Menentukan Rekomendasi Paket Produk (Studi Kasus : Toko Surya Elektrik Turen Malang)",
+    "slug": "skripsi-apriori",
+    "kategori": "Skripsi",
+    "tech_stack": "Laravel 11, Fillament, TailwidnCSS, MySQL",
+    "link_demo": "www.skripsi.arialog.my.id",
+    "link_github": "private",
+    "url_img": "/img/sc-skripsi.png", // SS Website
+    "description": "Saya mengangkat pada studi kasus toko surya elektrik dimana di toko tersebut kesulitan dalam menentukan rekomendasi paket produk yang sesuai dengan kebutuhan pelanggan. Dengan menggunakan algoritma apriori, saya berhasil membuat sistem yang dapat memberikan rekomendasi paket produk yang sesuai dengan kebutuhan pelanggan. selain itu fokus saya pada penelitian yaitu untuk mengetahui apakah algoritma apriori dapat digunakan dalam menentukan rekomendasi paket produk yang sesuai dengan kebutuhan pelanggan. dengan penambahan parameter kategori pada algoritma apriorinya saya berhasil membuat sistem yang dapat memberikan rekomendasi paket produk yang sesuai dengan kebutuhan pelanggan. Full papernya dapat di lihat pada https://journal.irpi.or.id/index.php/malcom/article/view/1782",
+  },
+  {
+    "title": "[MSIB 6] Student Connection - Platform Online Course Dengan Personalisasi Bakat dan Minat",
+    "slug": "msib-6-student-connection",
+    "kategori": "MSIB 6",
+    "tech_stack": "Django, SQL Lite, TailwindCSS",
+    "link_demo": "none",
+    "link_github": "https://github.com/hibnastiar27/stuco-complete",
+    "url_img": "/img/sc-msib6.png", // SS Website
+    "description": "Student Connection merupakan project team dimana saya sebagai Team Leader pada project ini. Student Connection merupakan platform online course yang dapat memberikan rekomendasi course yang sesuai dengan bakat dan minat siswa. Di Studi Independen bersama Educourse dengan menerapkan Django sebagai framework utama project ini",
+  },
+  {
+    "title": "NontonS - Website Nonton Film Online",
+    "slug": "nontons-website-nonton-film-online",
+    "kategori": "Personal Project",
+    "tech_stack": "React JS, TailwindCSS, TMDB API",
+    "link_demo": "https://nontons-tmdb-reactjs.vercel.app",
+    "link_github": "https://github.com/hibnastiar27/react-movie-tmdb",
+    "url_img": "/img/sc-nontons.png", // SS Website
+    "description": "NontonS merupakan project personal saya yang dibuat dengan React JS dan TailwindCSS. NontonS merupakan website nonton film online yang menggunakan API dari TMDB. NontonS memiliki fitur pencarian film, detail film, dan rekomendasi film. Project ini saya buat untuk tahap belajar react js yaitu komunikasi dengan API",
+  },
+  {
+    "title": "Modul Praktikum - Animasi & Game 2023/2024",
+    "slug": "modul-praktikum-animasi-game-2023-2024",
+    "kategori": "Project GAMA ITN",
+    "tech_stack": "React JS, TailwindCSS, Docusaurus",
+    "link_demo": "https://modul-anigame.vercel.app",
+    "link_github": "https://github.com/hibnastiar27/modul-anigame",
+    "url_img": "/img/sc-modul.png", // SS Website
+    "description": "Modul Praktikum - Animasi & Game 2023/2024 merupakan inisiatif project dari saya pada Laboratorium GAMA (Game, Animasi, Multimedia, Pengolahan Citra) ITN Malang yang dibuat dengan React JS dan TailwindCSS dibantu dengan pihak ketiga yaitu Docusaurus. Modul Praktikum - Animasi & Game 2023/2024 merupakan website modul praktikum yang berisi materi praktikum animasi dan game. Project ini saya buat untuk tahap belajar react js yaitu membuat website modul praktikum yang interaktif",
+  },
+  {
+    "title": "Simple Landing Page - TailwindCSS",
+    "slug": "simple-landing-page-tailwindcss",
+    "kategori": "Personal Project",
+    "tech_stack": "HTML, CSS, Javascript, TailwindCSS",
+    "link_demo": "https://landingpage-tailwindcss-byaria.netlify.app",
+    "link_github": "https://github.com/hibnastiar27/Landingpage-Tailwindcss",
+    "url_img": "/img/sc-landingpage.png", // SS Website
+    "description": "Landing Page TailwindCSS merupakan project personal saya yang dibuat dengan TailwindCSS. desain dari project ini saya ambil dari https://www.figma.com/@triciadesigns. Landing page ini saya buat untuk tahap belajar tailwindcss yaitu membuat landing page yang responsif",
+  },
+  {
+    "title": "Sistem Informasi - Customer Relationship Management Toko Elektronik",
+    "slug": "si-crm-toko-elektronik",
+    "kategori": "Personal Project",
+    "tech_stack": "Laravel, MySql, Bootstrap",
+    "link_demo": "none",
+    "link_github": "https://github.com/hibnastiar27/2118078-LARAVEL-CRM-Elektronik",
+    "url_img": "/img/sc-crm.png", // SS Website
+    "description": "Project ini untuk menyelesaikan mata kuliah Sistem Informasi pada semester 4, dimana saya mengambil tema Customer Relationship Management Toko Elektronik. Project ini dibuat dengan Laravel dan Bootstrap. Project ini saya buat untuk tahap belajar laravel yaitu membuat sistem informasi yang dapat mengelola data pelanggan dan produk",
+  },
+  {
+    "title": "Rent Apart - Website Sewa Apartemen",
+    "slug": "rent-apart-website-sewa-apartemen",
+    "kategori": "Personal Project",
+    "tech_stack": "HTML, CSS, Javascript",
+    "link_demo": "https://rentapart.netlify.app",
+    "link_github": "https://github.com/hibnastiar27/rentapart",
+    "url_img": "/img/sc-rentapart.png", // SS Website
+    "description": "Project ini untuk menyelesaikan Praktikum Web Programing. Dimana saya membuat website sewa apartemen dengan HTML, CSS, dan Javascript.",
+  },
+]
+
 const StatusWork = () => {
   return (
     <div className="flex bg-gray-300/10 border border-gray-500 w-fit py-2 px-4 backdrop-blur-md rounded-full gap-2 items-center text-sm">
@@ -177,17 +249,13 @@ const Page = () => {
       {/* Showcase */}
       <section className="sm:max-w-screen-lg sm:mx-auto mb-10 p-4 xl:p-0">
         <h1 className="text-4xl md:text-6xl font-bold text-center sm:text-start">Showcase</h1>
-        <p className="text-gray-1000 mb-4 text-center md:text-start">Best Projects I've Worked On</p>
-        <BentoCardComponent />
-        <div className="w-full flex justify-center mt-4">
+        <p className="text-gray-1000 mb-4 text-center md:text-start">Best Projects I have Worked On</p>
+        <BentoCardComponent data={dataShowcase} />
+        {/* <div className="w-full flex justify-center mt-4">
           <button className="py-2 px-3 rounded-full border border-gray-600 bg-gradient-to-r from-gray-50 to-gray-500 dark:from-gray-50 dark:to-gray dark:text-white duration-500 ease-in-out hover:duration-500 hover:shadow-xl hover:shadow-pink-500/20 font-semibold">See More</button>
-        </div>
+        </div> */}
       </section>
       {/* 
-      <main className="relative max-w-screen-lg mx-auto z-10 bg-black">
-        <Meteor />
-      </main> */}
-
 
       {/* Modal Contact Component */}
       <ContactComponent isOpen={isOpen} onOpenChange={onOpenChange} />
