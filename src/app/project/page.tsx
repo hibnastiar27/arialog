@@ -1,6 +1,6 @@
 import React from 'react'
 // import CardProject from '@/components/CardProject'
-import BentoCardComponent from '@/components/BentoCardComponent'
+// import BentoCardComponent from '@/components/BentoCardComponent'
 
 const Project = () => {
   // const data = [
@@ -92,7 +92,7 @@ const Project = () => {
       </div> */}
 
       <div className="w-full mb-16 mt-6 sm:mt-16 md:max-w-screen-xl md:mx-auto flex flex-col gap-6 px-6">
-        <BentoCardComponent />
+        {/* <BentoCardComponent /> */}
       </div>
     </>
   )
