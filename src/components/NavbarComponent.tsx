@@ -89,15 +89,15 @@ const NavbarComponent = () => {
 
   const menuItems = [
     {
-      label: "About Me",
+      label: "Home",
       href: "/",
       status: "ready"
     },
-    {
-      label: "Projects",
-      href: "/project",
-      status: "ready"
-    },
+    // {
+    //   label: "Projects",
+    //   href: "/project",
+    //   status: "soon"
+    // },
     {
       label: "Blog",
       href: "/blog",
