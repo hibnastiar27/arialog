@@ -71,9 +71,9 @@ const BentoCardComponent = ({ data }: BentoCardProps) => {
               width="100%"
               height={320}
             />
-            <div className='z-10 absolute top-0 p-4 flex flex-col-reverse justify-between w-full h-full bg-gradient-to-t from-black to-transparent'>
-              <h1 className='font-bold text-left text-xl capitalize'>{item.title}</h1>
-              <div className='flex justify-between'>
+            <div className='z-10 absolute rounded-2xl top-0 p-4 flex flex-col-reverse justify-between w-full h-full bg-gradient-to-t from-black to-transparent'>
+              <h1 className='font-bold  text-left text-xl capitalize'>{item.title}</h1>
+              <div className='flex rounded-2xl justify-between'>
                 <p className='py-2 px-4 bg-gray-1000/50 dark:bg-gray-500/50 border border-gray-1000 dark:border-gray-700 backdrop-blur-sm rounded-full '>{item.kategori}</p>
                 {/* <Link href="">See More</Link> */}
               </div>
