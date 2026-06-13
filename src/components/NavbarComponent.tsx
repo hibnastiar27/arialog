@@ -93,15 +93,20 @@ const NavbarComponent = () => {
       href: "/",
       status: "ready"
     },
+    {
+      label: "About",
+      href: "/about",
+      status: "ready"
+    },
     // {
     //   label: "Projects",
     //   href: "/project",
-    //   status: "soon"
+    //   status: "ready"
     // },
     {
       label: "Blog",
       href: "/blog",
-      status: "soon"
+      status: "ready"
     },
   ];
 
