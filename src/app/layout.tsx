@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import { Space_Grotesk } from 'next/font/google'
 
-import NavbarComponent from "@/components/NavbarComponent";
-import FooterGradient from "@/components/FooterGradient";
 import { Providers } from "@/context/ThemeProvider";
 import "./global.css"
 
@@ -25,9 +23,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       suppressHydrationWarning>
       <body className="font-spaceGrotesk selection:bg-pink-500 selection:text-white overflow-y-scroll">
         <Providers>
-          <NavbarComponent />
           {children}
-          <FooterGradient />
         </Providers>
       </body>
     </html>

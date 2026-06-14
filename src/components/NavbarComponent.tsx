@@ -117,7 +117,7 @@ const NavbarComponent = () => {
     {
       label: t.blog,
       href: "/blog",
-      status: "ready"
+      status: "soon"
     },
   ];
 

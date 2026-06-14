@@ -37,6 +37,7 @@ const config: Config = {
   },
   darkMode: "class",
   plugins: [
+    require('@tailwindcss/typography'),
     heroui({
       themes: {
         light: {
