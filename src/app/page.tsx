@@ -6,16 +6,17 @@ import {
   useDisclosure,
 } from "@heroui/react";
 import ContactComponent from "@/components/ContactComponent";
-import BentoCardComponent from "@/components/BentoCardComponent";
+import ShowcaseComponent from "@/components/ShowcaseComponent";
 import SpotlightCard from "@/components/SpotlightCard";
-import HorizontalExperienceCarousel from "@/components/HorizontalExperienceCarousel";
+import ExperienceTimeline from "@/components/ExperienceTimeline";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiArrowDown, FiDownload, FiBriefcase, FiAward, FiBook } from "react-icons/fi";
 import { SiNodedotjs, SiExpress, SiTypescript, SiNestjs, SiDocker, SiLaravel, SiPython, SiVuedotjs, SiReact, SiNextdotjs, SiMongodb, SiMysql } from "react-icons/si";
 import { dataAboutMe, dataDescriptions, dataEducations, dataExperiences, dataShowcase } from "@/constants/data";
+import { useLanguage } from "@/context/LanguageContext";
 
-const StatusWork = () => {
+const StatusWork = ({ lang }: { lang: 'en' | 'id' }) => {
   return (
     <div className="flex bg-neutral-100 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-700 w-fit py-2 px-4 backdrop-blur-md rounded-full gap-3 items-center text-sm shadow-sm">
       <span className="relative flex h-3 w-3">
@@ -23,7 +24,7 @@ const StatusWork = () => {
         <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
       </span>
       <p className="font-semibold text-neutral-700 dark:text-neutral-300 tracking-wide">
-        Available for freelance or part-time jobs
+        {lang === 'en' ? 'Available for freelance or part-time jobs' : 'Tersedia untuk proyek freelance & part-time'}
       </p>
     </div>
   )
@@ -46,9 +47,12 @@ const techStack = [
 
 const Page = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { lang } = useLanguage();
+
   return (
     <>
-      <div className="w-full h-screen justify-center items-center flex sm:max-w-screen-lg sm:mx-auto gap-6 px-6 dark:bg-blend-overlay bg-[url('/img/bg-pattern1.png')] dark:bg-[url('/img/bg-pattern.png')] bg-cover bg-center relative">
+      <div className="w-full h-screen justify-center items-center flex sm:max-w-screen-xl sm:mx-auto gap-6 px-6 dark:bg-blend-overlay bg-[url('/img/bg-pattern1.png')] dark:bg-[url('/img/bg-pattern.png')] bg-cover bg-center relative">
+
         <main className="flex flex-col-reverse md:flex-row justify-center items-center gap-12 sm:w-full">
           <div className="md:w-[60%] flex flex-col gap-6 items-center md:items-start text-center md:text-left z-10">
             <motion.div
@@ -56,7 +60,7 @@ const Page = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <StatusWork />
+              <StatusWork lang={lang} />
             </motion.div>
 
             <motion.h1
@@ -65,7 +69,7 @@ const Page = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-6xl font-bold leading-tight text-neutral-900 dark:text-white"
             >
-              Hi, I am <br className="hidden md:block" /> Nur {" "}
+              {lang === 'en' ? 'Hi, I am' : 'Halo, Saya'} <br className="hidden md:block" /> Nur {" "}
               <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:-skew-x-12 before:bg-pink-500 relative inline-block">
                 <span className="relative text-white">
                   Aria
@@ -83,7 +87,7 @@ const Page = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-neutral-600 dark:text-neutral-400 text-lg md:text-xl max-w-lg"
             >
-              {dataAboutMe.short_bio}
+              {dataAboutMe.short_bio[lang]}
             </motion.p>
 
             <motion.div
@@ -93,9 +97,9 @@ const Page = () => {
             >
               <Button 
                 onPress={onOpen} 
-                className="mt-2 py-6 px-8 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-lg hover:shadow-pink-500/20 hover:-translate-y-1 transition-all font-bold text-lg"
+                className="mt-2 py-6 px-10 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-[0_0_20px_rgba(236,72,153,0.3)] hover:shadow-[0_0_30px_rgba(236,72,153,0.5)] hover:-translate-y-1 transition-all font-bold text-lg border-none"
               >
-                Let's Talk
+                {lang === 'en' ? "Let's Talk" : "Hubungi Saya"}
               </Button>
             </motion.div>
           </div>
@@ -132,7 +136,7 @@ const Page = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-neutral-400 animate-bounce"
+          className="absolute bottom-10 flex flex-col items-center gap-2 text-neutral-400 animate-bounce"
         >
           <span className="text-xs uppercase tracking-widest font-bold">Scroll</span>
           <FiArrowDown className="text-xl" />
@@ -140,9 +144,11 @@ const Page = () => {
       </div >
 
       {/* About Me Section (Bento Grid) */}
-      <section className="sm:max-w-screen-lg sm:mx-auto mb-24 px-6 xl:px-0 pt-20">
+      <section className="sm:max-w-screen-xl sm:mx-auto mb-24 px-6 xl:px-0 pt-20">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-center md:text-left text-neutral-900 dark:text-white">About Me</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center md:text-left text-neutral-900 dark:text-white">
+            {lang === 'en' ? 'About Me' : 'Tentang Saya'}
+          </h2>
           <Button 
             as="a" 
             href={dataAboutMe.resumeUrl}
@@ -150,7 +156,7 @@ const Page = () => {
             className="mt-6 md:mt-0 bg-pink-500 text-white font-bold rounded-full px-8 py-6 shadow-lg hover:shadow-pink-500/30 hover:-translate-y-1 transition-all"
             startContent={<FiDownload className="text-lg" />}
           >
-            Download Resume
+            {lang === 'en' ? 'Download Resume' : 'Unduh CV'}
           </Button>
         </div>
 
@@ -160,10 +166,10 @@ const Page = () => {
             <div className="p-8 md:p-10">
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-neutral-900 dark:text-white">
                 <span className="p-3 bg-pink-100 dark:bg-pink-500/20 text-pink-500 rounded-2xl"><FiBriefcase /></span> 
-                Executive Summary
+                {lang === 'en' ? 'Executive Summary' : 'Ringkasan Karir'}
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg font-medium">
-                {dataDescriptions}
+                {dataDescriptions[lang]}
               </p>
             </div>
           </SpotlightCard>
@@ -187,16 +193,18 @@ const Page = () => {
         </div>
       </section>
 
-      {/* Horizontal Scroll Experience Section */}
-      <HorizontalExperienceCarousel experiences={dataExperiences} />
+      {/* Recent Experience Section (Timeline Layout) */}
+      <ExperienceTimeline experiences={dataExperiences[lang]} lang={lang} />
 
       {/* Showcase Section */}
-      <section className="sm:max-w-screen-lg sm:mx-auto mb-32 px-6 xl:px-0">
+      <section className="sm:max-w-screen-xl sm:mx-auto mb-32 px-6 xl:px-0">
         <div className="flex flex-col mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-center md:text-left text-neutral-900 dark:text-white">Showcase</h2>
-          <p className="text-neutral-500 mt-3 text-center md:text-left text-lg font-medium">Featured projects I have built.</p>
+          <p className="text-neutral-500 mt-3 text-center md:text-left text-lg font-medium">
+            {lang === 'en' ? 'Featured projects I have built.' : 'Proyek-proyek unggulan yang telah saya bangun.'}
+          </p>
         </div>
-        <BentoCardComponent data={dataShowcase} />
+        <ShowcaseComponent data={dataShowcase[lang]} lang={lang} />
       </section>
 
       {/* Modal Contact Component */}

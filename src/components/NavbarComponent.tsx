@@ -17,6 +17,8 @@ import { usePathname } from "next/navigation";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { motion } from "framer-motion";
 import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid'
+import { useLanguage } from "@/context/LanguageContext";
+import { FiGlobe } from "react-icons/fi";
 
 const LogoArialog = () => {
   return (
@@ -85,26 +87,35 @@ const LogoArialog = () => {
 
 const NavbarComponent = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { lang, toggleLang } = useLanguage();
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const translations = {
+    en: {
+      home: "Home",
+      about: "About",
+      projects: "Projects",
+      blog: "Blog",
+      soon: "soon"
+    },
+    id: {
+      home: "Beranda",
+      about: "Tentang",
+      projects: "Proyek",
+      blog: "Blog",
+      soon: "segera"
+    }
+  };
+  const t = translations[lang];
 
   const menuItems = [
     {
-      label: "Home",
+      label: t.home,
       href: "/",
       status: "ready"
     },
     {
-      label: "About",
-      href: "/about",
-      status: "ready"
-    },
-    // {
-    //   label: "Projects",
-    //   href: "/project",
-    //   status: "ready"
-    // },
-    {
-      label: "Blog",
+      label: t.blog,
       href: "/blog",
       status: "ready"
     },
@@ -114,7 +125,7 @@ const NavbarComponent = () => {
   return (
     <div className="fixed w-full sm:top-0 sm:bottom-auto bottom-0 z-20">
       <Navbar
-        maxWidth="lg"
+        maxWidth="xl"
         disableAnimation
         className="bg-white/0 dark:bg-[#111]/50 h-fit"
         isBlurred={true}>
@@ -138,13 +149,22 @@ const NavbarComponent = () => {
                   </Link> :
                   <Link href="#" className="cursor-not-allowed text-gray-900">
                     {item.label}{"  "}
-                    <span className=" bg-pink-500 px-2 py-1 text-white rounded-full text-sm">soon</span>
+                    <span className=" bg-pink-500 px-2 py-1 text-white rounded-full text-sm">{t.soon}</span>
                   </Link>
                 }
               </NavbarItem>
             )
           })}
-          <ThemeSwitcher />
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={toggleLang}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-neutral-200 dark:border-neutral-700 font-bold text-sm bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+            >
+              <FiGlobe className="text-pink-500" />
+              {lang === 'en' ? 'ID' : 'EN'}
+            </button>
+            <ThemeSwitcher />
+          </div>
           <button
             onClick={onOpen}
             className="sm:hidden"
@@ -181,7 +201,7 @@ const NavbarComponent = () => {
                           <span>
                             {item.label}
                           </span>
-                          <span className=" bg-pink-500 px-2 py-1 text-white rounded-full text-sm">soon</span>
+                          <span className=" bg-pink-500 px-2 py-1 text-white rounded-full text-sm">{t.soon}</span>
                         </p>
                     ))}
                   </ModalBody>

@@ -14,7 +14,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: 'Aria[log]',
-  icons: '/img/profile.jpg'
+  icons: '/img/profile.png'
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
