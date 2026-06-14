@@ -7,8 +7,7 @@ import {
   ModalFooter,
   Button,
   Input,
-  Textarea,
-  Form
+  Textarea
 } from "@heroui/react";
 
 interface ContactComponentProps {

@@ -114,7 +114,7 @@ const ShowcaseComponent = ({ data, lang }: ShowcaseProps) => {
       {/* Modern Two-Column Modal (Sama seperti sebelumnya) */}
       <Modal size='5xl' isOpen={isOpen} onOpenChange={onOpenChange} scrollBehavior='inside' backdrop="blur" classNames={{ closeButton: "z-50 right-6 top-6 text-xl bg-black/30 hover:bg-pink-500 text-white rounded-full p-2 backdrop-blur-md" }}>
         <ModalContent className="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50 p-0 overflow-hidden">
-          {(onClose) => (
+          {() => (
             <ModalBody className="p-0 gap-0">
               <div className="grid grid-cols-1 md:grid-cols-2 min-h-[60vh]">
                 

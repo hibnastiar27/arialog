@@ -11,9 +11,9 @@ import SpotlightCard from "@/components/SpotlightCard";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FiArrowDown, FiDownload, FiBriefcase, FiAward, FiBook } from "react-icons/fi";
+import { FiArrowDown, FiDownload, FiBriefcase, FiAward } from "react-icons/fi";
 import { SiNodedotjs, SiExpress, SiTypescript, SiNestjs, SiDocker, SiLaravel, SiPython, SiVuedotjs, SiReact, SiNextdotjs, SiMongodb, SiMysql } from "react-icons/si";
-import { dataAboutMe, dataDescriptions, dataEducations, dataExperiences, dataShowcase } from "@/constants/data";
+import { dataAboutMe, dataDescriptions, dataExperiences, dataShowcase } from "@/constants/data";
 import { useLanguage } from "@/context/LanguageContext";
 
 const StatusWork = ({ lang }: { lang: 'en' | 'id' }) => {
