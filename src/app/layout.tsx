@@ -1,31 +1,33 @@
-import type { Metadata } from "next"
-import { Space_Grotesk } from 'next/font/google'
+import type { Metadata } from "next";
+import Script from "next/script";
+import { Space_Grotesk } from "next/font/google";
 
 import { Providers } from "@/context/ThemeProvider";
-import "./global.css"
+import "./global.css";
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk', // Buat CSS variable untuk Tailwind
-})
-
+  subsets: ["latin"],
+  variable: "--font-space-grotesk", // Buat CSS variable untuk Tailwind
+});
 
 export const metadata: Metadata = {
-  title: 'Aria[log]',
-  icons: '/img/profile.png'
-}
+  title: "Aria[log]",
+  icons: "/img/profile.png",
+};
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang='en'
-      className={spaceGrotesk.variable}
-      suppressHydrationWarning>
+    <html lang="en" className={spaceGrotesk.variable} suppressHydrationWarning>
       <body className="font-spaceGrotesk selection:bg-pink-500 selection:text-white overflow-y-scroll">
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
+        <Script
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "122f4c64cdbc49b28648c6b94e2dda03"}'
+          strategy="afterInteractive"
+        />
       </body>
     </html>
-  )
+  );
 }
