@@ -1,10 +1,16 @@
 import type { ReactNode } from "react";
 
 const inputClass =
-  "w-full px-3 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-sm text-neutral-900 dark:text-neutral-100 outline-none focus:border-pink-500 transition-colors";
+  "w-full px-3 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-base text-neutral-900 dark:text-neutral-100 outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:border-pink-500 transition-colors";
 
 const labelClass =
   "text-xs uppercase tracking-widest font-medium text-neutral-500 dark:text-neutral-400";
+
+export function toMonthInput(d: Date | null | undefined): string {
+  if (!d) return "";
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  return `${d.getFullYear()}-${month}`;
+}
 
 export function Field({
   label,

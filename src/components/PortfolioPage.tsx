@@ -10,7 +10,7 @@ import ShowcaseComponent from "@/components/ShowcaseComponent";
 import SpotlightCard from "@/components/SpotlightCard";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, MotionConfig } from "framer-motion";
 import { FiArrowDown, FiDownload, FiBriefcase, FiAward } from "react-icons/fi";
 import { SiNodedotjs, SiExpress, SiTypescript, SiNestjs, SiDocker, SiLaravel, SiPython, SiVuedotjs, SiReact, SiNextdotjs, SiMongodb, SiMysql } from "react-icons/si";
 import { useLanguage } from "@/context/LanguageContext";
@@ -20,7 +20,7 @@ const StatusWork = ({ lang }: { lang: 'en' | 'id' }) => {
   return (
     <div className="flex bg-neutral-100 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-700 w-fit py-2 px-4 backdrop-blur-md rounded-full gap-3 items-center text-sm shadow-sm">
       <span className="relative flex h-3 w-3">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+        <span className="animate-ping motion-reduce:animate-none absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
         <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
       </span>
       <p className="font-semibold text-neutral-700 dark:text-neutral-300 tracking-wide">
@@ -50,7 +50,7 @@ const PortfolioPage = ({ data }: { data: PortfolioData }) => {
   const { lang } = useLanguage();
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <div className="w-full h-screen justify-center items-center flex sm:max-w-screen-xl sm:mx-auto gap-6 px-6 dark:bg-blend-overlay bg-[url('/img/bg-pattern1.png')] dark:bg-[url('/img/bg-pattern.png')] bg-cover bg-center relative">
 
         <main className="flex flex-col-reverse md:flex-row justify-center items-center gap-12 sm:w-full">
@@ -85,7 +85,7 @@ const PortfolioPage = ({ data }: { data: PortfolioData }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-neutral-600 dark:text-neutral-400 text-lg md:text-xl max-w-lg"
+              className="text-neutral-600 dark:text-neutral-400 text-pretty text-lg md:text-xl max-w-lg"
             >
               {data.aboutMe.short_bio[lang]}
             </motion.p>
@@ -118,7 +118,7 @@ const PortfolioPage = ({ data }: { data: PortfolioData }) => {
               }}
               content="Nur Aria Hibnastiar">
               <div className="relative">
-                <div className="absolute inset-0 bg-pink-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+                <div className="absolute inset-0 bg-pink-500 rounded-full blur-3xl opacity-20 animate-pulse motion-reduce:animate-none"></div>
                 <Image
                   src={data.aboutMe.url_img}
                   width={1000}
@@ -136,7 +136,7 @@ const PortfolioPage = ({ data }: { data: PortfolioData }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-10 flex flex-col items-center gap-2 text-neutral-400 animate-bounce"
+          className="absolute bottom-10 flex flex-col items-center gap-2 text-neutral-400 animate-bounce motion-reduce:animate-none"
         >
           <span className="text-xs uppercase tracking-widest font-bold">Scroll</span>
           <FiArrowDown className="text-xl" />
@@ -146,7 +146,7 @@ const PortfolioPage = ({ data }: { data: PortfolioData }) => {
       {/* About Me Section (Bento Grid) */}
       <section className="sm:max-w-screen-xl sm:mx-auto mb-24 px-6 xl:px-0 pt-20">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-center md:text-left text-neutral-900 dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-bold text-balance text-center md:text-left text-neutral-900 dark:text-white">
             {lang === 'en' ? 'About Me' : 'Tentang Saya'}
           </h2>
           <Button
@@ -168,7 +168,7 @@ const PortfolioPage = ({ data }: { data: PortfolioData }) => {
                 <span className="p-3 bg-pink-100 dark:bg-pink-500/20 text-pink-500 rounded-2xl"><FiBriefcase /></span>
                 {lang === 'en' ? 'Executive Summary' : 'Ringkasan Karir'}
               </h3>
-              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg font-medium">
+              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-pretty text-lg font-medium">
                 {data.descriptions[lang]}
               </p>
             </div>
@@ -199,7 +199,7 @@ const PortfolioPage = ({ data }: { data: PortfolioData }) => {
       {/* Showcase Section */}
       <section className="sm:max-w-screen-xl sm:mx-auto mb-32 px-6 xl:px-0">
         <div className="flex flex-col mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-center md:text-left text-neutral-900 dark:text-white">Showcase</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-balance text-center md:text-left text-neutral-900 dark:text-white">Showcase</h2>
           <p className="text-neutral-500 mt-3 text-center md:text-left text-lg font-medium">
             {lang === 'en' ? 'Featured projects I have built.' : 'Proyek-proyek unggulan yang telah saya bangun.'}
           </p>
@@ -209,7 +209,7 @@ const PortfolioPage = ({ data }: { data: PortfolioData }) => {
 
       {/* Modal Contact Component */}
       <ContactComponent isOpen={isOpen} onOpenChange={onOpenChange} />
-    </>
+    </MotionConfig>
   )
 }
 

@@ -1,11 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import {
-  dataAboutMe,
-  dataDescriptions,
-  dataEducations,
-  dataExperiences,
-  dataShowcase,
-} from "../src/constants/data";
+import { dataAboutMe, dataDescriptions, dataShowcase } from "../src/constants/data";
+import { buildEducationData, buildExperienceData } from "./content";
 
 const prisma = new PrismaClient();
 
@@ -30,35 +25,8 @@ async function main() {
     },
   });
 
-  await prisma.education.createMany({
-    data: dataEducations.en.map((item, i) => ({
-      titleEn: item.title,
-      titleId: dataEducations.id[i].title,
-      institution: item.institution,
-      durationEn: item.duration,
-      durationId: dataEducations.id[i].duration,
-      descriptionEn: item.description,
-      descriptionId: dataEducations.id[i].description,
-      imageUrl: item.imageUrl,
-      order: i,
-    })),
-  });
-
-  await prisma.experience.createMany({
-    data: dataExperiences.en.map((item, i) => ({
-      titleEn: item.title,
-      titleId: dataExperiences.id[i].title,
-      institution: item.institution,
-      date: item.date,
-      durationEn: item.duration,
-      durationId: dataExperiences.id[i].duration,
-      descriptionEn: item.description,
-      descriptionId: dataExperiences.id[i].description,
-      linkSertifikat: item.link_sertifikat,
-      imageUrl: item.imageUrl,
-      order: i,
-    })),
-  });
+  await prisma.education.createMany({ data: buildEducationData() });
+  await prisma.experience.createMany({ data: buildExperienceData() });
 
   await prisma.showcase.createMany({
     data: dataShowcase.en.map((item, i) => ({

@@ -53,6 +53,32 @@ const fallback: PortfolioData = {
   showcase: dataShowcase,
 };
 
+const MONTHS_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MONTHS_ID = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
+
+function formatPeriod(start: Date | null, end: Date | null, lang: "en" | "id"): string {
+  if (!start) return "";
+  const months = lang === "id" ? MONTHS_ID : MONTHS_EN;
+  const startStr = `${months[start.getMonth()]} ${start.getFullYear()}`;
+  if (!end) return lang === "id" ? `${startStr} – Sekarang` : `${startStr} – Present`;
+  if (start.getTime() === end.getTime()) return startStr;
+  const endStr = `${months[end.getMonth()]} ${end.getFullYear()}`;
+  return `${startStr} – ${endStr}`;
+}
+
+function formatDuration(start: Date | null, end: Date | null, lang: "en" | "id"): string {
+  if (!start) return "";
+  const endD = end ?? new Date();
+  const months = (endD.getFullYear() - start.getFullYear()) * 12 + (endD.getMonth() - start.getMonth());
+  if (months <= 0) return lang === "id" ? "Sekali" : "Event";
+  const years = Math.floor(months / 12);
+  const rem = months % 12;
+  const parts: string[] = [];
+  if (years > 0) parts.push(lang === "id" ? `${years} tahun` : `${years} ${years === 1 ? "year" : "years"}`);
+  if (rem > 0) parts.push(lang === "id" ? `${rem} bulan` : `${rem} ${rem === 1 ? "month" : "months"}`);
+  return parts.join(" ");
+}
+
 export async function getPortfolioData(): Promise<PortfolioData> {
   try {
     const [profile, educations, experiences, showcases] = await Promise.all([
@@ -75,14 +101,14 @@ export async function getPortfolioData(): Promise<PortfolioData> {
         en: educations.map((e) => ({
           title: e.titleEn,
           institution: e.institution,
-          duration: e.durationEn,
+          duration: formatDuration(e.startDate, e.endDate, "en"),
           description: e.descriptionEn,
           imageUrl: e.imageUrl,
         })),
         id: educations.map((e) => ({
           title: e.titleId,
           institution: e.institution,
-          duration: e.durationId,
+          duration: formatDuration(e.startDate, e.endDate, "id"),
           description: e.descriptionId,
           imageUrl: e.imageUrl,
         })),
@@ -91,8 +117,8 @@ export async function getPortfolioData(): Promise<PortfolioData> {
         en: experiences.map((e) => ({
           title: e.titleEn,
           institution: e.institution,
-          date: e.date,
-          duration: e.durationEn,
+          date: formatPeriod(e.startDate, e.endDate, "en"),
+          duration: formatDuration(e.startDate, e.endDate, "en"),
           description: e.descriptionEn,
           link_sertifikat: e.linkSertifikat,
           imageUrl: e.imageUrl,
@@ -100,8 +126,8 @@ export async function getPortfolioData(): Promise<PortfolioData> {
         id: experiences.map((e) => ({
           title: e.titleId,
           institution: e.institution,
-          date: e.date,
-          duration: e.durationId,
+          date: formatPeriod(e.startDate, e.endDate, "id"),
+          duration: formatDuration(e.startDate, e.endDate, "id"),
           description: e.descriptionId,
           link_sertifikat: e.linkSertifikat,
           imageUrl: e.imageUrl,

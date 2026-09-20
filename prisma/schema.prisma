@@ -20,33 +20,32 @@ model Profile {
 }
 
 model Education {
-  id            String   @id @default(cuid())
+  id            String    @id @default(cuid())
   titleEn       String
   titleId       String
   institution   String
-  durationEn    String
-  durationId    String
+  startDate     DateTime?
+  endDate       DateTime?
   descriptionEn String[]
   descriptionId String[]
   imageUrl      String
-  order         Int      @default(0)
-  updatedAt     DateTime @updatedAt
+  order         Int       @default(0)
+  updatedAt     DateTime  @updatedAt
 }
 
 model Experience {
-  id             String   @id @default(cuid())
+  id             String    @id @default(cuid())
   titleEn        String
   titleId        String
   institution    String
-  date           String
-  durationEn     String
-  durationId     String
+  startDate      DateTime?
+  endDate        DateTime?
   descriptionEn  String[]
   descriptionId  String[]
   linkSertifikat String
   imageUrl       String
-  order          Int      @default(0)
-  updatedAt      DateTime @updatedAt
+  order          Int       @default(0)
+  updatedAt      DateTime  @updatedAt
 }
 
 model Showcase {

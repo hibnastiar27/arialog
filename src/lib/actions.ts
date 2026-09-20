@@ -22,6 +22,13 @@ function num(v: FormDataEntryValue | null): number {
   return Number.isNaN(n) ? 0 : n;
 }
 
+function parseMonth(v: FormDataEntryValue | null): Date | null {
+  const s = str(v);
+  const m = /^(\d{4})-(\d{2})$/.exec(s);
+  if (!m) return null;
+  return new Date(parseInt(m[1], 10), parseInt(m[2], 10) - 1, 1);
+}
+
 async function uploadIfProvided(
   formData: FormData,
   fieldName: string,
@@ -82,8 +89,8 @@ export async function saveEducation(formData: FormData) {
     titleEn: str(formData.get("titleEn")),
     titleId: str(formData.get("titleId")),
     institution: str(formData.get("institution")),
-    durationEn: str(formData.get("durationEn")),
-    durationId: str(formData.get("durationId")),
+    startDate: parseMonth(formData.get("startDate")),
+    endDate: parseMonth(formData.get("endDate")),
     descriptionEn: list(formData.get("descriptionEn")),
     descriptionId: list(formData.get("descriptionId")),
     imageUrl: imageUrl ?? str(formData.get("imageUrl")),
@@ -114,9 +121,8 @@ export async function saveExperience(formData: FormData) {
     titleEn: str(formData.get("titleEn")),
     titleId: str(formData.get("titleId")),
     institution: str(formData.get("institution")),
-    date: str(formData.get("date")),
-    durationEn: str(formData.get("durationEn")),
-    durationId: str(formData.get("durationId")),
+    startDate: parseMonth(formData.get("startDate")),
+    endDate: parseMonth(formData.get("endDate")),
     descriptionEn: list(formData.get("descriptionEn")),
     descriptionId: list(formData.get("descriptionId")),
     linkSertifikat: str(formData.get("linkSertifikat")),

@@ -1,7 +1,7 @@
 import type { Education } from "@prisma/client";
 import Link from "next/link";
 import { saveEducation } from "@/lib/actions";
-import { Field, TextArea, SubmitButton } from "./fields";
+import { Field, TextArea, SubmitButton, toMonthInput } from "./fields";
 import FileUploadField from "./FileUploadField";
 
 export default function EducationForm({
@@ -17,10 +17,8 @@ export default function EducationForm({
         <Field label="Judul (EN)" name="titleEn" defaultValue={education?.titleEn} required />
         <Field label="Judul (ID)" name="titleId" defaultValue={education?.titleId} required />
         <Field label="Institusi" name="institution" defaultValue={education?.institution} required />
-        <div className="grid grid-cols-2 gap-5">
-          <Field label="Durasi (EN)" name="durationEn" defaultValue={education?.durationEn} />
-          <Field label="Durasi (ID)" name="durationId" defaultValue={education?.durationId} />
-        </div>
+        <Field label="Mulai" name="startDate" type="month" defaultValue={toMonthInput(education?.startDate)} required />
+        <Field label="Selesai" name="endDate" type="month" defaultValue={toMonthInput(education?.endDate)} />
       </div>
 
       <FileUploadField

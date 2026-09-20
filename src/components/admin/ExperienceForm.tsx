@@ -1,7 +1,7 @@
 import type { Experience } from "@prisma/client";
 import Link from "next/link";
 import { saveExperience } from "@/lib/actions";
-import { Field, TextArea, SubmitButton } from "./fields";
+import { Field, TextArea, SubmitButton, toMonthInput } from "./fields";
 import FileUploadField from "./FileUploadField";
 
 export default function ExperienceForm({
@@ -17,9 +17,13 @@ export default function ExperienceForm({
         <Field label="Judul (EN)" name="titleEn" defaultValue={experience?.titleEn} required />
         <Field label="Judul (ID)" name="titleId" defaultValue={experience?.titleId} required />
         <Field label="Institusi" name="institution" defaultValue={experience?.institution} required />
-        <Field label="Periode" name="date" defaultValue={experience?.date} placeholder="Feb 2024 - Jun 2024" />
-        <Field label="Durasi (EN)" name="durationEn" defaultValue={experience?.durationEn} />
-        <Field label="Durasi (ID)" name="durationId" defaultValue={experience?.durationId} />
+        <Field label="Mulai" name="startDate" type="month" defaultValue={toMonthInput(experience?.startDate)} required />
+        <Field
+          label="Selesai (kosongkan jika masih berlangsung)"
+          name="endDate"
+          type="month"
+          defaultValue={toMonthInput(experience?.endDate)}
+        />
       </div>
 
       <Field

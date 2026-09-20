@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Space_Grotesk } from "next/font/google";
+import { Space_Grotesk, Fraunces } from "next/font/google";
 
 import { Providers } from "@/context/ThemeProvider";
 import "./global.css";
@@ -8,6 +8,13 @@ import "./global.css";
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk", // Buat CSS variable untuk Tailwind
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -19,8 +26,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={spaceGrotesk.variable} suppressHydrationWarning>
-      <body className="font-spaceGrotesk selection:bg-pink-500 selection:text-white overflow-y-scroll">
+    <html lang="en" className={`${spaceGrotesk.variable} ${fraunces.variable}`} suppressHydrationWarning>
+      <body className="font-spaceGrotesk antialiased selection:bg-pink-500 selection:text-white overflow-y-scroll">
         <Providers>{children}</Providers>
         <Script
           src="https://static.cloudflareinsights.com/beacon.min.js"

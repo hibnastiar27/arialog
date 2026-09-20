@@ -49,10 +49,10 @@ export default function BlogPostList({ posts }: { posts: BlogPost[] }) {
             <span className="self-start px-3 py-1 rounded-full bg-pink-500 text-white text-[10px] uppercase tracking-widest font-medium">
               {featuredPost.category}
             </span>
-            <h3 className="text-3xl md:text-5xl font-serif font-medium leading-tight text-white group-hover:text-pink-300 transition-colors duration-300">
+            <h3 className="text-3xl md:text-5xl font-serif font-medium leading-tight text-balance text-white group-hover:text-pink-300 transition-colors duration-300">
               <Link href={`/blog/${featuredPost.slug}`}>{featuredPost.title}</Link>
             </h3>
-            <p className="text-base leading-relaxed text-white/70 font-serif line-clamp-3">
+            <p className="text-base leading-relaxed text-pretty text-white/70 font-serif line-clamp-3">
               {featuredPost.excerpt}
             </p>
             <div className="flex items-center gap-3 text-white/50">
@@ -112,7 +112,7 @@ export default function BlogPostList({ posts }: { posts: BlogPost[] }) {
                   <span className="w-1 h-1 rounded-full bg-white/40"></span>
                   <span className="text-xs italic font-serif">{post.readTime}</span>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-serif font-medium leading-tight text-white group-hover:text-pink-300 transition-colors duration-300">
+                <h3 className="text-2xl md:text-3xl font-serif font-medium leading-tight text-balance text-white group-hover:text-pink-300 transition-colors duration-300">
                   <Link href={`/blog/${post.slug}`}>
                     <span className="absolute inset-0 z-10" />
                     {post.title}

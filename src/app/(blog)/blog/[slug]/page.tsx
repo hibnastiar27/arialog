@@ -68,7 +68,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium leading-tight text-neutral-900 dark:text-neutral-50 mb-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium leading-tight text-balance text-neutral-900 dark:text-neutral-50 mb-8">
             {post.title}
           </h1>
 

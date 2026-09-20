@@ -28,7 +28,7 @@ export default async function LoginPage({
           type="password"
           required
           autoFocus
-          className="w-full px-4 py-3 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 outline-none focus:border-pink-500 transition-colors"
+          className="w-full px-4 py-3 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-base outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:border-pink-500 transition-colors"
           placeholder="••••••••"
         />
 

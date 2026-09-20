@@ -61,7 +61,7 @@ export default function FileUploadField({
             name={name}
             accept={accept}
             onChange={handleChange}
-            className="text-sm text-neutral-600 dark:text-neutral-300 file:mr-3 file:px-3 file:py-1.5 file:rounded-lg file:border-0 file:bg-neutral-900 file:text-white dark:file:bg-white dark:file:text-neutral-900 file:text-sm file:font-medium"
+            className="text-base text-neutral-600 dark:text-neutral-300 file:mr-3 file:px-3 file:py-1.5 file:rounded-lg file:border-0 file:bg-neutral-900 file:text-white dark:file:bg-white dark:file:text-neutral-900 file:text-sm file:font-medium"
           />
           {currentUrl && (
             <a

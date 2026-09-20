@@ -10,10 +10,10 @@ export default function BlogPage() {
           <p className="tracking-widest uppercase text-xs text-neutral-400 mb-4 font-medium">
             Arsip
           </p>
-          <h1 className="text-5xl md:text-7xl font-serif italic font-light tracking-tight text-neutral-900 dark:text-neutral-50 mb-6">
+          <h1 className="text-5xl md:text-7xl font-serif italic font-light tracking-tight text-balance text-neutral-900 dark:text-neutral-50 mb-6">
             Kata & Makna
           </h1>
-          <p className="text-lg text-neutral-500 dark:text-neutral-400 font-serif italic max-w-2xl mx-auto">
+          <p className="text-lg text-neutral-500 dark:text-neutral-400 font-serif italic text-pretty max-w-2xl mx-auto">
             Kumpulan esai, pemikiran, dan refleksi tentang persimpangan antara
             rekayasa perangkat lunak dan seni visual.
           </p>

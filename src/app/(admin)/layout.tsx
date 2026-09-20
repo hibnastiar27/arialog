@@ -9,10 +9,8 @@ export default async function AdminLayout({
   if (!ok) redirect("/login");
 
   return (
-    <div className="min-h-screen flex bg-neutral-50 dark:bg-neutral-950">
-      <div className="hidden md:flex flex-col border-r border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
-        <AdminNav />
-      </div>
+    <div className="min-h-screen flex flex-col md:flex-row bg-neutral-50 dark:bg-neutral-950">
+      <AdminNav />
       <main className="flex-1 p-6 md:p-10 overflow-x-hidden">{children}</main>
     </div>
   );

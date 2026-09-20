@@ -32,6 +32,7 @@ const config: Config = {
       },
       fontFamily: {
         spaceGrotesk: ["var(--font-space-grotesk)", "sans-serif"],
+        serif: ["var(--font-serif)", "ui-serif", "Georgia", "serif"],
       },
     },
   },
