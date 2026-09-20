@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Profile {
+  id            Int      @id @default(1)
+  urlImg        String   @default("")
+  resumeUrl     String   @default("")
+  shortBioEn    String   @default("")
+  shortBioId    String   @default("")
+  descriptionEn String   @default("") @db.Text
+  descriptionId String   @default("") @db.Text
+  updatedAt     DateTime @updatedAt
+}
+
+model Education {
+  id            String   @id @default(cuid())
+  titleEn       String
+  titleId       String
+  institution   String
+  durationEn    String
+  durationId    String
+  descriptionEn String[]
+  descriptionId String[]
+  imageUrl      String
+  order         Int      @default(0)
+  updatedAt     DateTime @updatedAt
+}
+
+model Experience {
+  id             String   @id @default(cuid())
+  titleEn        String
+  titleId        String
+  institution    String
+  date           String
+  durationEn     String
+  durationId     String
+  descriptionEn  String[]
+  descriptionId  String[]
+  linkSertifikat String
+  imageUrl       String
+  order          Int      @default(0)
+  updatedAt      DateTime @updatedAt
+}
+
+model Showcase {
+  id            Int      @id @default(autoincrement())
+  titleEn       String
+  titleId       String
+  slug          String   @unique
+  kategoriEn    String
+  kategoriId    String
+  techStack     String[]
+  linkDemo      String
+  linkGithub    String
+  urlImg        String
+  descriptionEn String   @db.Text
+  descriptionId String   @db.Text
+  order         Int      @default(0)
+  updatedAt     DateTime @updatedAt
+}

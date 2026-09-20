@@ -1,9 +1,5 @@
-import React from 'react'
+import { redirect } from "next/navigation";
 
-const page = () => {
-  return (
-    <div className='mt-20'>dasbor</div>
-  )
+export default function DashboardPage() {
+  redirect("/dashbor/profile");
 }
-
-export default page

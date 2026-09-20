@@ -1,0 +1,11 @@
+# Taste
+- Writes to the assistant in Indonesian (Bahasa Indonesia), in a casual tone with abbreviations (e.g. "yg"); prefers replies in Indonesian. Confidence: 0.85
+- Asks for clean, modern, and visually attractive design aesthetics for UI work (e.g. blog menus, article card layouts). Confidence: 0.85
+- Likes bold, unique, and high-contrast visual layouts (e.g. poster-style cards, near-black panels, strong gradients, oversized archive numbers) rather than plain/minimal ones. Confidence: 0.7
+- Gives design feedback in brief, qualitative terms (e.g. "jadi lebih menarik dan lebih clean") without detailed specs, leaving the specific layout/styling decisions to the assistant. Confidence: 0.6
+- Personal project ("arialog") is a Next.js App Router + TypeScript + Tailwind CSS site (portfolio + blog); uses react-icons and next/image. Confidence: 0.7
+- Prefers Prisma ORM with serverless Postgres (Neon) for database-backed features. Confidence: 0.7
+- Uses Neon object storage for file/image hosting in the arialog project. Confidence: 0.8
+- Prefers uploading files directly (profile photo, resume, images) over entering URLs/links, and wants previews for uploaded files. Confidence: 0.8
+- Expects resumes to be uploaded as PDF files (not links), with an inline preview. Confidence: 0.8
+- Prefers a custom, self-built CMS (admin dashboard + database + server actions) over headless (Sanity/Payload) or git-based (Decap/Tina) CMS for full control and hands-on learning value. Confidence: 0.6
