@@ -9,3 +9,5 @@
 - Prefers uploading files directly (profile photo, resume, images) over entering URLs/links, and wants previews for uploaded files. Confidence: 0.8
 - Expects resumes to be uploaded as PDF files (not links), with an inline preview. Confidence: 0.8
 - Prefers a custom, self-built CMS (admin dashboard + database + server actions) over headless (Sanity/Payload) or git-based (Decap/Tina) CMS for full control and hands-on learning value. Confidence: 0.6
+- Cares about page load speed/performance and proactively asks for optimizations when pages feel slow. Confidence: 0.8
+- Wants a loading UI on every page that fetches/renders database data (skeleton, spinner, or progress bar — flexible on which), to mask fetch latency. Confidence: 0.9
