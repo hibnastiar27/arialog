@@ -39,6 +39,7 @@ export default function ExperienceForm({
         urlFieldName="imageUrl"
         kind="image"
         accept="image/*"
+        hint="Rasio 16:9 (landscape) • minimal 1280×720px"
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

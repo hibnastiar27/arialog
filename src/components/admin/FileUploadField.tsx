@@ -9,6 +9,7 @@ export default function FileUploadField({
   urlFieldName,
   kind,
   accept,
+  hint,
 }: {
   label: string;
   name: string;
@@ -16,6 +17,7 @@ export default function FileUploadField({
   urlFieldName: string;
   kind: "image" | "pdf";
   accept?: string;
+  hint?: string;
 }) {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const objectUrlRef = useRef<string | null>(null);
@@ -40,6 +42,8 @@ export default function FileUploadField({
       <span className="text-xs uppercase tracking-widest font-medium text-neutral-500 dark:text-neutral-400">
         {label}
       </span>
+
+      {hint && <span className="text-xs text-pink-500 dark:text-pink-400">{hint}</span>}
 
       <input type="hidden" name={urlFieldName} value={currentUrl} />
 

@@ -1,5 +1,5 @@
 # Taste
-- Writes to the assistant in Indonesian (Bahasa Indonesia), in a casual tone with abbreviations (e.g. "yg"); prefers replies in Indonesian. Confidence: 0.85
+- Writes to the assistant in Indonesian (Bahasa Indonesia), in a casual tone with abbreviations (e.g. "yg"); prefers replies in Indonesian; casually mixes English tech terms into Indonesian (e.g. "bisa fixkan??"). Confidence: 0.9
 - Asks for clean, modern, and visually attractive design aesthetics for UI work (e.g. blog menus, article card layouts). Confidence: 0.85
 - Likes bold, unique, and high-contrast visual layouts (e.g. poster-style cards, near-black panels, strong gradients, oversized archive numbers) rather than plain/minimal ones. Confidence: 0.7
 - Gives design feedback in brief, qualitative terms (e.g. "jadi lebih menarik dan lebih clean") without detailed specs, leaving the specific layout/styling decisions to the assistant. Confidence: 0.6
@@ -11,3 +11,4 @@
 - Prefers a custom, self-built CMS (admin dashboard + database + server actions) over headless (Sanity/Payload) or git-based (Decap/Tina) CMS for full control and hands-on learning value. Confidence: 0.6
 - Cares about page load speed/performance and proactively asks for optimizations when pages feel slow. Confidence: 0.8
 - Wants a loading UI on every page that fetches/renders database data (skeleton, spinner, or progress bar — flexible on which), to mask fetch latency. Confidence: 0.9
+- Wants image-upload fields in the admin dashboard to show recommended specs (aspect ratio + minimum pixel dimensions) so uploaded images render consistently and look good on the frontend. Confidence: 0.8

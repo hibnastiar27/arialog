@@ -22,6 +22,7 @@ export default async function ProfilePage() {
             urlFieldName="urlImg"
             kind="image"
             accept="image/*"
+            hint="Rasio 1:1 (persegi) • minimal 1000×1000px • posisikan wajah di tengah"
           />
           <FileUploadField
             label="Resume (PDF)"

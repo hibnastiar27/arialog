@@ -3,6 +3,11 @@ import { prisma } from "@/lib/db";
 import { deleteExperience } from "@/lib/actions";
 import DeleteButton from "@/components/admin/DeleteButton";
 
+function fmt(d: Date | null): string {
+  if (!d) return "";
+  return `${d.toLocaleString("id-ID", { month: "short" })} ${d.getFullYear()}`;
+}
+
 export default async function ExperiencesPage() {
   const items = await prisma.experience.findMany({ orderBy: { order: "asc" } });
 
@@ -28,7 +33,7 @@ export default async function ExperiencesPage() {
               <div className="min-w-0">
                 <p className="font-medium text-neutral-900 dark:text-white truncate">{item.titleEn}</p>
                 <p className="text-sm text-neutral-500 dark:text-neutral-400 truncate">
-                  {item.institution} · {item.date}
+                  {item.institution} · {fmt(item.startDate)}{item.endDate ? ` – ${fmt(item.endDate)}` : " – Sekarang"}
                 </p>
               </div>
               <div className="flex items-center gap-1 shrink-0">

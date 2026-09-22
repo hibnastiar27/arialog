@@ -32,6 +32,7 @@ export default function ShowcaseForm({
         urlFieldName="urlImg"
         kind="image"
         accept="image/*"
+        hint="Rasio 16:9 (landscape) • minimal 1600×900px"
       />
 
       <TextArea
