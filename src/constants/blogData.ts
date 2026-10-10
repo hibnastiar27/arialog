@@ -17,7 +17,7 @@ export const posts: BlogPost[] = [
     date: '10 Juni 2026',
     readTime: '5 mnt baca',
     category: 'Rekayasa',
-    imageUrl: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1600&auto=format&fit=crop',
     content: `
 # Memahami React Server Components
 
@@ -64,7 +64,7 @@ RSC bukanlah fitur yang akan menggantikan komponen klien, melainkan pelengkap ya
     date: '5 Juni 2026',
     readTime: '7 mnt baca',
     category: 'Desain',
-    imageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1600&auto=format&fit=crop',
     content: `
 # Menguasai Transisi Tailwind CSS
 
@@ -109,7 +109,7 @@ Untuk membuat interaksi yang terasa sangat organik, bereksperimenlah dengan komb
     date: '28 Mei 2026',
     readTime: '10 mnt baca',
     category: 'Seni',
-    imageUrl: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1600&auto=format&fit=crop',
     content: `
 # Seni Desain Web Minimalis
 
