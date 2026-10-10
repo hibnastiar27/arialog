@@ -1,44 +1,84 @@
-"use client";
+import Link from "next/link";
+import { FiArrowUpRight, FiGithub, FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
 
-import { FiTwitter, FiGithub, FiLinkedin } from "react-icons/fi";
+const socials = [
+  { label: "GitHub", href: "https://github.com/hibnastiar27", icon: FiGithub },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/hibnastiar/", icon: FiLinkedin },
+  { label: "Instagram", href: "https://www.instagram.com/nurhibnastiar1/", icon: FiInstagram },
+];
+
+const links = [
+  { label: "Tulisan", href: "/blog" },
+  { label: "Portfolio", href: "/" },
+];
 
 export default function BlogFooterComponent() {
   return (
-    <footer className="border-t border-neutral-200 dark:border-neutral-800 bg-[#fbfbfb] dark:bg-neutral-950 mt-32 py-16 transition-colors duration-300">
-      <div className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <span className="font-serif italic text-3xl font-bold text-neutral-900 dark:text-white mb-2">
-            Journal.
-          </span>
-          <p className="text-sm text-neutral-500 dark:text-neutral-400 font-serif italic">
-            Thoughts on code, design, and the art of creation.
-          </p>
-        </div>
+    <footer className="relative mt-24 md:mt-32 border-t border-neutral-200 dark:border-neutral-800 overflow-hidden px-5 sm:px-6">
+      <div className="max-w-5xl mx-auto pt-16 md:pt-20">
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] gap-12 md:items-end">
+          <div className="flex flex-col items-start gap-6">
+            <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] font-semibold text-neutral-500 dark:text-neutral-400">
+              <span className="h-px w-8 bg-pink-500" aria-hidden />
+              Arialog Journal
+            </p>
+            <p className="font-serif text-4xl sm:text-5xl md:text-6xl font-medium leading-[1.02] tracking-tight text-balance text-neutral-900 dark:text-white">
+              Terima kasih sudah <span className="italic text-pink-500">membaca.</span>
+            </p>
+            <p className="max-w-md text-base leading-relaxed text-pretty text-neutral-600 dark:text-neutral-400">
+              Punya pertanyaan, koreksi, atau ide tulisan? Kirim pesan — saya senang ngobrol soal kode dan desain.
+            </p>
+            <a
+              href="mailto:nurhibnastiar@gmail.com"
+              className="group inline-flex items-center gap-2 rounded-full bg-neutral-900 dark:bg-white px-6 py-3 text-sm font-semibold text-white dark:text-neutral-900 hover:bg-pink-500 dark:hover:bg-pink-500 dark:hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fcfcfc] dark:focus-visible:ring-offset-[#0a0a0a]"
+            >
+              <FiMail aria-hidden />
+              Kirim email
+              <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none" aria-hidden />
+            </a>
+          </div>
 
-        <div className="flex flex-col items-center gap-4">
-          <p className="text-sm tracking-widest uppercase font-medium text-neutral-900 dark:text-neutral-100">
-            Stay Updated
-          </p>
-          <div className="flex gap-2 w-full max-w-sm">
-            <input 
-              type="email" 
-              placeholder="your@email.com" 
-              className="w-full px-4 py-2 text-sm rounded-l-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 outline-none focus:border-neutral-900 dark:focus:border-white transition-colors"
-            />
-            <button className="px-6 py-2 text-sm uppercase tracking-widest rounded-r-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-medium hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors">
-              Join
-            </button>
+          <div className="flex flex-col gap-8 md:items-end">
+            <nav aria-label="Tautan footer" className="flex flex-col gap-2 md:items-end">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="font-serif text-2xl text-neutral-900 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="flex items-center gap-2">
+              {socials.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={label}
+                  className="grid size-11 place-items-center rounded-full border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:border-pink-500 hover:text-pink-500 dark:hover:border-pink-500 dark:hover:text-pink-400 transition-colors"
+                >
+                  <Icon className="size-[18px]" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="flex items-center gap-6 text-neutral-400 dark:text-neutral-500">
-          <a href="#" className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FiTwitter size={20} /></a>
-          <a href="#" className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FiGithub size={20} /></a>
-          <a href="#" className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FiLinkedin size={20} /></a>
+        <div className="mt-16 flex flex-col sm:flex-row justify-between gap-3 border-t border-neutral-200 dark:border-neutral-800 pt-6 text-xs text-neutral-500 dark:text-neutral-400">
+          <p>&copy; {new Date().getFullYear()} Nur Aria Hibnastiar. Hak cipta dilindungi.</p>
+          <p>Dibuat dengan Next.js &amp; Tailwind CSS</p>
         </div>
-      </div>
-      <div className="max-w-4xl mx-auto px-6 mt-16 pt-8 border-t border-neutral-200 dark:border-neutral-800 text-center text-xs tracking-widest uppercase text-neutral-400">
-        &copy; {new Date().getFullYear()} Arialog. All rights reserved.
+
+        {/* Wordmark raksasa */}
+        <p
+          aria-hidden
+          className="mt-8 -mb-[0.1em] select-none whitespace-nowrap text-center font-bold leading-none tracking-tighter text-neutral-200/80 dark:text-neutral-800/70 text-[clamp(3.5rem,17vw,11.5rem)]"
+        >
+          ARIALOG<span className="text-pink-500/80">.</span>
+        </p>
       </div>
     </footer>
   );

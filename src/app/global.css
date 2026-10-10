@@ -5,3 +5,24 @@
 /* body {
   @apply;
 } */
+
+/* Inline code di artikel blog (code di dalam <pre> tidak ikut) */
+.article-prose :where(code):not(:where(pre code)) {
+  @apply rounded-md bg-pink-500/10 px-1.5 py-0.5 font-medium text-pink-700 dark:text-pink-300;
+}
+.article-prose :where(code):not(:where(pre code))::before,
+.article-prose :where(code):not(:where(pre code))::after {
+  content: none;
+}
+
+/* Konten kutipan biasanya sudah memakai tanda kutip sendiri */
+.article-prose blockquote p:first-of-type::before,
+.article-prose blockquote p:last-of-type::after {
+  content: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:has(.article-prose) {
+    scroll-behavior: smooth;
+  }
+}
